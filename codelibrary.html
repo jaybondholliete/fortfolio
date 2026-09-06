@@ -1,0 +1,3233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeLibrary — Jaybond Holliete</title>
+  <meta name="description" content="Code reference library — HTML, CSS, JavaScript, Python, Flutter, C#, Lua. Beginner-friendly snippets and definitions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/crest.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/codelibrary.css">
+</head>
+<body>
+
+  <!-- ============ INLINE PIXEL ICON DEFS ============ -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-shield" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" fill-rule="evenodd" d="M4,0 H12 V1 H13 V8 H12 V9 H11 V10 H10 V11 H9 V12 H7 V11 H6 V10 H5 V9 H4 V8 H3 V1 H4 Z M6,4 H7 V5 H6 Z M7,5 H8 V6 H7 Z M5,6 H6 V7 H5 Z M8,6 H9 V7 H8 Z M4,7 H5 V8 H4 Z M9,7 H10 V8 H9 Z"/></symbol>
+      <symbol id="i-controller" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" fill-rule="evenodd" d="M4,3 H12 V4 H13 V8 H12 V9 H11 V10 H10 V11 H6 V10 H5 V9 H4 V8 H3 V4 H4 Z M4,6 H5 V5 H6 V6 H7 V7 H6 V8 H5 V7 H4 Z M10,5 H11 V6 H10 Z M11,7 H12 V8 H11 Z"/></symbol>
+      <symbol id="i-blocks" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2,9 H7 V14 H2 Z M6,5 H11 V10 H6 Z M9,1 H14 V6 H9 Z"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M4,1 H11 V2 H12 V3 H13 V5 H12 V6 H11 V7 H4 V6 H3 V5 H2 V3 H3 V2 H4 Z M7,7 H9 V11 H7 Z M5,11 H11 V13 H5 Z M6,13 H10 V14 H6 Z"/></symbol>
+      <symbol id="i-envelope" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" fill-rule="evenodd" d="M2,4 H13 V12 H2 Z M3,5 H12 L7,9 Z"/></symbol>
+      <symbol id="i-crest" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" fill-rule="evenodd" d="M3,1 H12 V2 H13 V7 H12 V8 H11 V9 H10 V10 H9 V11 H8 V12 H7 V11 H6 V10 H5 V9 H4 V8 H3 V7 H2 V2 H3 Z M4,4 H7 V5 H6 Z M5,5 H6 V7 H5 Z M4,7 H6 V8 H4 Z M9,4 H10 V8 H9 Z M9,4 H12 V5 H9 Z M9,6 H12 V7 H9 Z M11,5 H12 V8 H11 Z"/></symbol>
+      <symbol id="i-bars" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2,3 H14 V5 H2 Z M2,7 H14 V9 H2 Z M2,11 H14 V13 H2 Z"/></symbol>
+      <symbol id="i-cross" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M3,4 H5 L8,7 L11,4 H13 V6 L10,9 L13,12 V14 H11 L8,11 L5,14 H3 V12 L6,9 L3,6 Z"/></symbol>
+      <symbol id="i-up" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M7,3 H9 V8 H7 Z M5,5 H11 L8,2 Z M3,11 H13 V13 H3 Z M3,14 H13 V15 H3 Z"/></symbol>
+      <symbol id="i-back" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M14,7 H6 L9,4 L7,2 L1,8 L7,14 L9,12 L6,9 H14 Z"/></symbol>
+      <symbol id="i-book" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M2,2 H7 V3 H8 V14 H7 V13 H3 V14 H2 Z M3,3 H6 V12 H3 Z M9,2 H14 V3 H13 V14 H12 V13 H9 V14 H8 V3 H9 Z M10,3 H12 V12 H10 Z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M8,1 A7,7 0 1 1 8,15 A7,7 0 1 1 8,1 Z M3,6 H5 C5,5 5,4 6,3 C4,3 3,4 3,6 Z M8,3 C9,4 9,5 9,6 H7 C7,5 7,4 8,3 Z M10,6 H13 C13,4 12,3 10,3 C11,4 11,5 10,6 Z M5,7 H3 C3,8 4,10 5,11 V7 Z M7,7 H9 V11 C8,12 8,12 7,11 Z M11,7 H13 C13,9 12,11 11,11 Z M6,12 C5,13 4,13 3,12 C4,13 6,14 8,14 C10,14 12,13 13,12 C12,13 11,13 10,12 C9,13 7,13 6,12 Z"/></symbol>
+      <symbol id="i-brace" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M5,1 H8 V2 H6 V6 H4 V7 H6 V10 H8 V11 H5 V10 H3 V7 H2 V6 H3 V3 H5 Z M11,1 H14 V2 H12 V6 H14 V7 H12 V10 H14 V11 H11 V10 H13 V7 H12 V6 H13 V3 H11 Z"/></symbol>
+      <symbol id="i-python" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M4,1 H10 V2 H11 V5 H7 V6 H3 V7 H2 V2 H3 Z M4,3 V4 H7 V3 Z M12,6 H14 V11 H13 V14 H7 V15 H4 V12 H8 V11 H12 V8 H10 V7 H12 Z M10,13 V12 H7 V13 Z"/></symbol>
+      <symbol id="i-flutter" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M6,1 H10 L14,5 L10,9 H6 L2,5 Z M6,10 H10 L12,12 L10,14 H6 L4,12 Z"/></symbol>
+      <symbol id="i-csharp" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M7,2 H9 V3 H10 V4 H12 V5 H10 V6 H9 V7 H7 V6 H6 V5 H4 V4 H6 V3 H7 Z M5,9 C3,9 2,10 2,12 C2,14 3,15 5,15 C6,15 7,14 7,13 H6 C6,14 5,14 5,14 C4,14 3,13 3,12 C3,11 4,10 5,10 C5,10 6,10 6,11 H7 C7,10 6,9 5,9 Z M11,9 C9,9 8,10 8,12 C8,14 9,15 11,15 C12,15 13,14 13,13 H12 C12,14 11,14 11,14 C10,14 9,13 9,12 C9,11 10,10 11,10 C11,10 12,10 12,11 H13 C13,10 12,9 11,9 Z"/></symbol>
+      <symbol id="i-lua" viewBox="0 0 16 16" shape-rendering="crispEdges"><path fill="currentColor" d="M8,1 A7,7 0 1 1 8,15 A7,7 0 1 1 8,1 Z M8,3 A2,2 0 1 1 8,7 A2,2 0 1 1 8,3 Z M11,8 A3,3 0 1 1 11,14 A3,3 0 1 1 11,8 Z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-logo" href="index.html" aria-label="Jaybond Holliete — home">
+      <svg class="crest" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-crest"/></svg>
+      <span class="name"><b>J</b>H</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a class="nav-link" href="index.html#about">About</a></li>
+      <li><a class="nav-link" href="index.html#skills">Skills</a></li>
+      <li><a class="nav-link" href="index.html#achievements">Achievements</a></li>
+      <li><a class="nav-link" href="index.html#projects">Projects</a></li>
+      <li><a class="nav-link" href="index.html#contact">Contact</a></li>
+      <li><a class="nav-link is-active" href="codelibrary.html">CodeLibrary</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+      <svg class="bars" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-bars"/></svg>
+      <svg class="cross" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-cross"/></svg>
+    </button>
+  </nav>
+
+  <!-- ============ LIBRARY LAYOUT ============ -->
+  <div class="container lib-layout">
+
+    <!-- ---------- Sidebar ---------- -->
+    <aside class="clay-panel lib-sidebar" id="libSidebar">
+      <h2>Languages</h2>
+      <button class="lib-lang-btn is-active" data-lang="html" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-globe"/></svg>
+        HTML
+      </button>
+      <button class="lib-lang-btn" data-lang="css" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-brace"/></svg>
+        CSS
+      </button>
+      <button class="lib-lang-btn" data-lang="js" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
+        JavaScript
+      </button>
+      <button class="lib-lang-btn" data-lang="python" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-python"/></svg>
+        Python
+      </button>
+      <button class="lib-lang-btn" data-lang="flutter" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-flutter"/></svg>
+        Flutter
+      </button>
+      <button class="lib-lang-btn" data-lang="csharp" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-csharp"/></svg>
+        C#
+      </button>
+      <button class="lib-lang-btn" data-lang="lua" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-lua"/></svg>
+        Lua
+      </button>
+      <button class="lib-lang-btn" data-lang="animation" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
+        Animation
+      </button>
+    </aside>
+
+    <!-- ---------- Content ---------- -->
+    <div class="lib-content">
+
+      <a class="lib-back" href="index.html">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-back"/></svg>
+        Back to Portfolio
+      </a>
+
+      <!-- ============ HTML PANEL ============ -->
+      <section class="lib-panel is-active" id="panel-html" aria-label="HTML reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-globe"/></svg>
+          <div>
+            <h1>HTML</h1>
+            <p>HyperText Markup Language — the structure of every web page</p>
+          </div>
+        </div>
+
+        <!-- HTML: Document Template -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Document Template</h2>
+          <div class="snippet-card">
+            <h3>HTML5 Boilerplate <span class="tag">template</span></h3>
+            <p class="desc">The minimal starting point for every HTML document.</p>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">This page you're viewing right now is the output of a similar boilerplate — DOCTYPE, html, head, body.</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;!DOCTYPE html&gt;</span>
+<span class="tok-kw">&lt;html</span> <span class="tok-str">lang="en"</span><span class="tok-kw">&gt;</span>
+<span class="tok-kw">&lt;head&gt;</span>
+  <span class="tok-kw">&lt;meta</span> <span class="tok-str">charset="UTF-8"</span><span class="tok-kw">&gt;</span>
+  <span class="tok-kw">&lt;meta</span> <span class="tok-str">name="viewport"</span> <span class="tok-str">content="width=device-width, initial-scale=1.0"</span><span class="tok-kw">&gt;</span>
+  <span class="tok-kw">&lt;title&gt;</span>Page Title<span class="tok-kw">&lt;/title&gt;</span>
+  <span class="tok-kw">&lt;link</span> <span class="tok-str">rel="stylesheet"</span> <span class="tok-str">href="style.css"</span><span class="tok-kw">&gt;</span>
+<span class="tok-kw">&lt;/head&gt;</span>
+<span class="tok-kw">&lt;body&gt;</span>
+  <span class="tok-com">&lt;!-- content here --&gt;</span>
+  <span class="tok-kw">&lt;script</span> <span class="tok-str">src="script.js"</span><span class="tok-kw">&gt;&lt;/script&gt;</span>
+<span class="tok-kw">&lt;/body&gt;</span>
+<span class="tok-kw">&lt;/html&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Text Elements -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Text Elements</h2>
+          <div class="snippet-card">
+            <h3>Headings <span class="tag">h1–h6</span></h3>
+            <p class="desc">Six levels of section headings, h1 being the highest.</p>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <h1>Level 1</h1>
+                <h2>Level 2</h2>
+                <h3>Level 3</h3>
+                <h4>Level 4</h4>
+                <h5>Level 5</h5>
+                <h6>Level 6</h6>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;h1&gt;</span>Level 1<span class="tok-kw">&lt;/h1&gt;</span>
+<span class="tok-kw">&lt;h2&gt;</span>Level 2<span class="tok-kw">&lt;/h2&gt;</span>
+<span class="tok-kw">&lt;h3&gt;</span>Level 3<span class="tok-kw">&lt;/h3&gt;</span>
+<span class="tok-kw">&lt;h4&gt;</span>Level 4<span class="tok-kw">&lt;/h4&gt;</span>
+<span class="tok-kw">&lt;h5&gt;</span>Level 5<span class="tok-kw">&lt;/h5&gt;</span>
+<span class="tok-kw">&lt;h6&gt;</span>Level 6<span class="tok-kw">&lt;/h6&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Paragraph &amp; Text Formatting <span class="tag">p, strong, em</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p>This is a paragraph.</p>
+                <p><strong>Bold text</strong> and <em>italic text</em>.</p>
+                <hr>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;p&gt;</span>This is a paragraph.<span class="tok-kw">&lt;/p&gt;</span>
+<span class="tok-kw">&lt;p&gt;</span><span class="tok-kw">&lt;strong&gt;</span>Bold text<span class="tok-kw">&lt;/strong&gt;</span> and <span class="tok-kw">&lt;em&gt;</span>italic text<span class="tok-kw">&lt;/em&gt;</span>.<span class="tok-kw">&lt;/p&gt;</span>
+<span class="tok-kw">&lt;br&gt;</span> <span class="tok-com">&lt;!-- line break --&gt;</span>
+<span class="tok-kw">&lt;hr&gt;</span> <span class="tok-com">&lt;!-- horizontal rule --&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Links & Images -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Links &amp; Images</h2>
+          <div class="snippet-card">
+            <h3>Anchor Link <span class="tag">a</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <a href="https://example.com">Visit Example</a><br>
+                <a href="https://example.com" target="_blank" rel="noopener noreferrer">Open new tab</a><br>
+                <a href="#panel-html">Jump to section</a>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;a</span> <span class="tok-str">href="https://example.com"</span><span class="tok-kw">&gt;</span>Visit Example<span class="tok-kw">&lt;/a&gt;</span>
+
+<span class="tok-com">&lt;!-- open in new tab --&gt;</span>
+<span class="tok-kw">&lt;a</span> <span class="tok-str">href="https://example.com"</span> <span class="tok-str">target="_blank"</span> <span class="tok-str">rel="noopener noreferrer"</span><span class="tok-kw">&gt;</span>Open new tab<span class="tok-kw">&lt;/a&gt;</span>
+
+<span class="tok-com">&lt;!-- link to section on same page --&gt;</span>
+<span class="tok-kw">&lt;a</span> <span class="tok-str">href="#section-id"</span><span class="tok-kw">&gt;</span>Jump to section<span class="tok-kw">&lt;/a&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Image <span class="tag">img</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <img src="assets/icons/crest.svg" alt="JH crest icon" width="64" height="64" style="background:var(--navy-800);padding:12px;border-radius:12px">
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;img</span> <span class="tok-str">src="photo.jpg"</span>
+     <span class="tok-str">alt="Description of the image"</span>
+     <span class="tok-str">width="400"</span> <span class="tok-str">height="300"</span>
+     <span class="tok-str">loading="lazy"</span><span class="tok-kw">&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Lists -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Lists</h2>
+          <div class="snippet-card">
+            <h3>Unordered &amp; Ordered Lists <span class="tag">ul, ol, li</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <ul style="padding-left:20px;margin:4px 0">
+                  <li>First item</li>
+                  <li>Second item</li>
+                </ul>
+                <ol style="padding-left:20px;margin:4px 0">
+                  <li>Step one</li>
+                  <li>Step two</li>
+                </ol>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;ul&gt;</span>
+  <span class="tok-kw">&lt;li&gt;</span>First item<span class="tok-kw">&lt;/li&gt;</span>
+  <span class="tok-kw">&lt;li&gt;</span>Second item<span class="tok-kw">&lt;/li&gt;</span>
+<span class="tok-kw">&lt;/ul&gt;</span>
+
+<span class="tok-kw">&lt;ol&gt;</span>
+  <span class="tok-kw">&lt;li&gt;</span>Step one<span class="tok-kw">&lt;/li&gt;</span>
+  <span class="tok-kw">&lt;li&gt;</span>Step two<span class="tok-kw">&lt;/li&gt;</span>
+<span class="tok-kw">&lt;/ol&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Forms -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Forms</h2>
+          <div class="snippet-card">
+            <h3>Basic Form <span class="tag">form, input, label</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <form onsubmit="event.preventDefault()">
+                  <label for="demo-name">Name:</label>
+                  <input type="text" id="demo-name" name="name" placeholder="Your name" required>
+                  <br><br>
+                  <label for="demo-email">Email:</label>
+                  <input type="email" id="demo-email" name="email" placeholder="you@example.com">
+                  <br><br>
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;form</span> <span class="tok-str">action="/submit"</span> <span class="tok-str">method="POST"</span><span class="tok-kw">&gt;</span>
+  <span class="tok-kw">&lt;label</span> <span class="tok-str">for="name"</span><span class="tok-kw">&gt;</span>Name:<span class="tok-kw">&lt;/label&gt;</span>
+  <span class="tok-kw">&lt;input</span> <span class="tok-str">type="text"</span> <span class="tok-str">id="name"</span> <span class="tok-str">name="name"</span> <span class="tok-str">required</span><span class="tok-kw">&gt;</span>
+
+  <span class="tok-kw">&lt;label</span> <span class="tok-str">for="email"</span><span class="tok-kw">&gt;</span>Email:<span class="tok-kw">&lt;/label&gt;</span>
+  <span class="tok-kw">&lt;input</span> <span class="tok-str">type="email"</span> <span class="tok-str">id="email"</span> <span class="tok-str">name="email"</span><span class="tok-kw">&gt;</span>
+
+  <span class="tok-kw">&lt;button</span> <span class="tok-str">type="submit"</span><span class="tok-kw">&gt;</span>Submit<span class="tok-kw">&lt;/button&gt;</span>
+<span class="tok-kw">&lt;/form&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Input Types <span class="tag">input</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content" style="display:flex;flex-direction:column;gap:8px">
+                <input type="text" placeholder="text">
+                <input type="email" placeholder="email">
+                <input type="password" placeholder="password">
+                <input type="number" placeholder="number" value="42">
+                <label><input type="checkbox"> checkbox</label>
+                <label><input type="radio" name="r"> <input type="radio" name="r"> radio</label>
+                <input type="date">
+                <select><option>Option A</option><option>Option B</option></select>
+                <textarea placeholder="textarea"></textarea>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;input</span> <span class="tok-str">type="text"</span><span class="tok-kw">&gt;</span>      <span class="tok-com">&lt;!-- single-line text --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="email"</span><span class="tok-kw">&gt;</span>     <span class="tok-com">&lt;!-- validated email --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="password"</span><span class="tok-kw">&gt;</span> <span class="tok-com">&lt;!-- hidden characters --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="number"</span><span class="tok-kw">&gt;</span>    <span class="tok-com">&lt;!-- numeric input --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="checkbox"</span><span class="tok-kw">&gt;</span>  <span class="tok-com">&lt;!-- toggle on/off --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="radio"</span><span class="tok-kw">&gt;</span>     <span class="tok-com">&lt;!-- single choice from group --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="date"</span><span class="tok-kw">&gt;</span>      <span class="tok-com">&lt;!-- date picker --&gt;</span>
+<span class="tok-kw">&lt;input</span> <span class="tok-str">type="file"</span><span class="tok-kw">&gt;</span>      <span class="tok-com">&lt;!-- file upload --&gt;</span>
+<span class="tok-kw">&lt;textarea&gt;&lt;/textarea&gt;</span>     <span class="tok-com">&lt;!-- multi-line text --&gt;</span>
+<span class="tok-kw">&lt;select&gt;&lt;option&gt;</span>A<span class="tok-kw">&lt;/option&gt;&lt;/select&gt;</span> <span class="tok-com">&lt;!-- dropdown --&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Tables -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Tables</h2>
+          <div class="snippet-card">
+            <h3>Basic Table <span class="tag">table, tr, td, th</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <table>
+                  <thead><tr><th>Name</th><th>Age</th></tr></thead>
+                  <tbody><tr><td>Jay</td><td>21</td></tr></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;table&gt;</span>
+  <span class="tok-kw">&lt;thead&gt;</span>
+    <span class="tok-kw">&lt;tr&gt;</span>
+      <span class="tok-kw">&lt;th&gt;</span>Name<span class="tok-kw">&lt;/th&gt;</span>
+      <span class="tok-kw">&lt;th&gt;</span>Age<span class="tok-kw">&lt;/th&gt;</span>
+    <span class="tok-kw">&lt;/tr&gt;</span>
+  <span class="tok-kw">&lt;/thead&gt;</span>
+  <span class="tok-kw">&lt;tbody&gt;</span>
+    <span class="tok-kw">&lt;tr&gt;</span>
+      <span class="tok-kw">&lt;td&gt;</span>Jay<span class="tok-kw">&lt;/td&gt;</span>
+      <span class="tok-kw">&lt;td&gt;</span>21<span class="tok-kw">&lt;/td&gt;</span>
+    <span class="tok-kw">&lt;/tr&gt;</span>
+  <span class="tok-kw">&lt;/tbody&gt;</span>
+<span class="tok-kw">&lt;/table&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Semantic Structure -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Semantic Structure</h2>
+          <div class="snippet-card">
+            <h3>Layout Elements <span class="tag">header, nav, main, section, footer</span></h3>
+            <p class="desc">Semantic tags give meaning to page regions for accessibility and SEO.</p>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <header style="background:var(--navy-800);color:var(--white);padding:8px 12px;border-radius:8px">
+                  <nav>
+                    <ul>
+                      <li><a href="#panel-html">Home</a></li>
+                      <li><a href="#panel-css">About</a></li>
+                    </ul>
+                  </nav>
+                </header>
+                <main style="padding:8px 12px">
+                  <section>
+                    <article>
+                      <h2>Title</h2>
+                      <p>Body text.</p>
+                    </article>
+                  </section>
+                </main>
+                <footer style="background:rgba(6,13,28,0.06);padding:8px 12px;border-radius:8px;font-size:var(--text-xs)">&copy; 2025</footer>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;header&gt;</span>   <span class="tok-com">&lt;!-- site or section header --&gt;</span>
+  <span class="tok-kw">&lt;nav&gt;</span>     <span class="tok-com">&lt;!-- navigation links --&gt;</span>
+    <span class="tok-kw">&lt;a</span> <span class="tok-str">href="#"</span><span class="tok-kw">&gt;</span>Home<span class="tok-kw">&lt;/a&gt;</span>
+  <span class="tok-kw">&lt;/nav&gt;</span>
+<span class="tok-kw">&lt;/header&gt;</span>
+
+<span class="tok-kw">&lt;main&gt;</span>
+  <span class="tok-kw">&lt;section&gt;</span>
+    <span class="tok-kw">&lt;article&gt;</span> <span class="tok-com">&lt;!-- self-contained content --&gt;</span>
+      <span class="tok-kw">&lt;h2&gt;</span>Title<span class="tok-kw">&lt;/h2&gt;</span>
+      <span class="tok-kw">&lt;p&gt;</span>Body text.<span class="tok-kw">&lt;/p&gt;</span>
+    <span class="tok-kw">&lt;/article&gt;</span>
+  <span class="tok-kw">&lt;/section&gt;</span>
+  <span class="tok-kw">&lt;aside&gt;</span>   <span class="tok-com">&lt;!-- sidebar / related content --&gt;</span>
+<span class="tok-kw">&lt;/main&gt;</span>
+
+<span class="tok-kw">&lt;footer&gt;</span>  <span class="tok-com">&lt;!-- site footer --&gt;</span>
+  <span class="tok-kw">&lt;p&gt;</span>&amp;copy; 2025<span class="tok-kw">&lt;/p&gt;</span>
+<span class="tok-kw">&lt;/footer&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Text Formatting -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Text Formatting</h2>
+          <div class="snippet-card">
+            <h3>Inline Text Elements <span class="tag">strong, em, i, s, mark, u</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p><strong>strong</strong> · <em>emphasized</em> · <i>italic</i> · <s>strikethrough</s> · <mark>mark</mark> · <u>underline</u></p>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;strong&gt;</span>strong<span class="tok-kw">&lt;/strong&gt;</span>       <span class="tok-com">&lt;!-- important --&gt;</span>
+<span class="tok-kw">&lt;em&gt;</span>emphasized<span class="tok-kw">&lt;/em&gt;</span>       <span class="tok-com">&lt;!-- stress emphasis --&gt;</span>
+<span class="tok-kw">&lt;i&gt;</span>italic<span class="tok-kw">&lt;/i&gt;</span>              <span class="tok-com">&lt;!-- idiomatic text --&gt;</span>
+<span class="tok-kw">&lt;s&gt;</span>strikethrough<span class="tok-kw">&lt;/s&gt;</span>      <span class="tok-com">&lt;!-- no longer relevant --&gt;</span>
+<span class="tok-kw">&lt;mark&gt;</span>mark<span class="tok-kw">&lt;/mark&gt;</span>           <span class="tok-com">&lt;!-- highlighted --&gt;</span>
+<span class="tok-kw">&lt;u&gt;</span>underline<span class="tok-kw">&lt;/u&gt;</span>          <span class="tok-com">&lt;!-- unarticulated annotation --&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Superscript &amp; Subscript <span class="tag">sup, sub</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p>x<sup>sup</sup> · x<sub>sub</sub> · H<sub>2</sub>O · E=mc<sup>2</sup></p>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre>x<span class="tok-kw">&lt;sup&gt;</span>sup<span class="tok-kw">&lt;/sup&gt;</span>     <span class="tok-com">&lt;!-- superscript --&gt;</span>
+x<span class="tok-kw">&lt;sub&gt;</span>sub<span class="tok-kw">&lt;/sub&gt;</span>     <span class="tok-com">&lt;!-- subscript --&gt;</span>
+H<span class="tok-kw">&lt;sub&gt;</span>2<span class="tok-kw">&lt;/sub&gt;</span>O         <span class="tok-com">&lt;!-- chemical formula --&gt;</span>
+E=mc<span class="tok-kw">&lt;sup&gt;</span>2<span class="tok-kw">&lt;/sup&gt;</span>        <span class="tok-com">&lt;!-- equation --&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Abbreviation, Quote, Citation <span class="tag">abbr, q, blockquote, cite</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p><abbr title="abbreviation">abbr</abbr> · <q>inline quote</q></p>
+                <blockquote>block quote</blockquote>
+                <p><cite>citation</cite></p>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;abbr</span> <span class="tok-str">title="abbreviation"</span><span class="tok-kw">&gt;</span>abbr<span class="tok-kw">&lt;/abbr&gt;</span>
+<span class="tok-kw">&lt;q&gt;</span>inline quote<span class="tok-kw">&lt;/q&gt;</span>          <span class="tok-com">&lt;!-- adds quotes --&gt;</span>
+<span class="tok-kw">&lt;blockquote&gt;</span>block quote<span class="tok-kw">&lt;/blockquote&gt;</span>
+<span class="tok-kw">&lt;cite&gt;</span>citation<span class="tok-kw">&lt;/cite&gt;</span>           <span class="tok-com">&lt;!-- title of work --&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Definition, Term, Data, Time <span class="tag">dfn, data, time</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p><dfn>term</dfn> definition · <data value="42">data</data> · <time datetime="2025-05-18">May 18</time></p>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;dfn&gt;</span>term<span class="tok-kw">&lt;/dfn&gt;</span> definition     <span class="tok-com">&lt;!-- definition term --&gt;</span>
+<span class="tok-kw">&lt;data</span> <span class="tok-str">value="42"</span><span class="tok-kw">&gt;</span>data<span class="tok-kw">&lt;/data&gt;</span>          <span class="tok-com">&lt;!-- machine-readable --&gt;</span>
+<span class="tok-kw">&lt;time</span> <span class="tok-str">datetime="2025-05-18"</span><span class="tok-kw">&gt;</span>May 18<span class="tok-kw">&lt;/time&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Code Elements -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Code &amp; Keyboard</h2>
+          <div class="snippet-card">
+            <h3>Code, Sample, Keyboard, Variable <span class="tag">code, samp, kbd, var</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p><code>code()</code> · <samp>sample output</samp></p>
+                <p>Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save</p>
+                <p><var>variable</var></p>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;code&gt;</span>code()<span class="tok-kw">&lt;/code&gt;</span>              <span class="tok-com">&lt;!-- inline code --&gt;</span>
+<span class="tok-kw">&lt;samp&gt;</span>sample output<span class="tok-kw">&lt;/samp&gt;</span>       <span class="tok-com">&lt;!-- program output --&gt;</span>
+Press <span class="tok-kw">&lt;kbd&gt;</span>Ctrl<span class="tok-kw">&lt;/kbd&gt;</span>+<span class="tok-kw">&lt;kbd&gt;</span>S<span class="tok-kw">&lt;/kbd&gt;</span>  <span class="tok-com">&lt;!-- keyboard input --&gt;</span>
+<span class="tok-kw">&lt;var&gt;</span>variable<span class="tok-kw">&lt;/var&gt;</span>              <span class="tok-com">&lt;!-- variable in math/code --&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: UI Elements -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">UI Elements</h2>
+          <div class="snippet-card">
+            <h3>Interactive Elements <span class="tag">button, details, meter, progress</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <button type="button">button</button>
+                <div style="margin:8px 0"><meter value="0.6">60%</meter></div>
+                <div style="margin:8px 0"><progress value="0.6">60%</progress></div>
+                <details><summary>Click to expand</summary><p>Hidden details revealed.</p></details>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;button</span> <span class="tok-str">type="button"</span><span class="tok-kw">&gt;</span>button<span class="tok-kw">&lt;/button&gt;</span>
+
+<span class="tok-kw">&lt;meter</span> <span class="tok-str">value="0.6"</span><span class="tok-kw">&gt;</span>60%<span class="tok-kw">&lt;/meter&gt;</span>      <span class="tok-com">&lt;!-- known range gauge --&gt;</span>
+<span class="tok-kw">&lt;progress</span> <span class="tok-str">value="0.6"</span><span class="tok-kw">&gt;</span>60%<span class="tok-kw">&lt;/progress&gt;</span>  <span class="tok-com">&lt;!-- task completion --&gt;</span>
+
+<span class="tok-kw">&lt;details&gt;</span>
+  <span class="tok-kw">&lt;summary&gt;</span>Click to expand<span class="tok-kw">&lt;/summary&gt;</span>
+  <span class="tok-kw">&lt;p&gt;</span>Hidden details revealed.<span class="tok-kw">&lt;/p&gt;</span>
+<span class="tok-kw">&lt;/details&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Select &amp; Optgroup <span class="tag">select, optgroup, option</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <select>
+                  <option>Value 1</option><option>Value 2</option><option>Value 3</option>
+                </select>
+                <select style="margin-left:8px">
+                  <optgroup label="Group 1"><option>Value 1</option><option>Value 2</option></optgroup>
+                  <optgroup label="Group 2"><option>Value 3</option><option>Value 4</option></optgroup>
+                </select>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;select&gt;</span>
+  <span class="tok-kw">&lt;option&gt;</span>Value 1<span class="tok-kw">&lt;/option&gt;</span>
+  <span class="tok-kw">&lt;option&gt;</span>Value 2<span class="tok-kw">&lt;/option&gt;</span>
+<span class="tok-kw">&lt;/select&gt;</span>
+
+<span class="tok-com">&lt;!-- grouped options --&gt;</span>
+<span class="tok-kw">&lt;select&gt;</span>
+  <span class="tok-kw">&lt;optgroup</span> <span class="tok-str">label="Group 1"</span><span class="tok-kw">&gt;</span>
+    <span class="tok-kw">&lt;option&gt;</span>Value 1<span class="tok-kw">&lt;/option&gt;</span>
+    <span class="tok-kw">&lt;option&gt;</span>Value 2<span class="tok-kw">&lt;/option&gt;</span>
+  <span class="tok-kw">&lt;/optgroup&gt;</span>
+  <span class="tok-kw">&lt;optgroup</span> <span class="tok-str">label="Group 2"</span><span class="tok-kw">&gt;</span>
+    <span class="tok-kw">&lt;option&gt;</span>Value 3<span class="tok-kw">&lt;/option&gt;</span>
+  <span class="tok-kw">&lt;/optgroup&gt;</span>
+<span class="tok-kw">&lt;/select&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Textarea <span class="tag">textarea</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <textarea rows="3" cols="30" placeholder="Multi-line text input..."></textarea>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;textarea</span> <span class="tok-str">rows="3"</span> <span class="tok-str">cols="30"</span> <span class="tok-str">placeholder="..."</span><span class="tok-kw">&gt;</span>
+  content
+<span class="tok-kw">&lt;/textarea&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Description Lists & Comments -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Description Lists &amp; Comments</h2>
+          <div class="snippet-card">
+            <h3>Description List <span class="tag">dl, dt, dd</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <dl style="padding-left:12px">
+                  <dt><strong>HTML</strong></dt>
+                  <dd>HyperText Markup Language</dd>
+                  <dt><strong>CSS</strong></dt>
+                  <dd>Cascading Style Sheets</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;dl&gt;</span>
+  <span class="tok-kw">&lt;dt&gt;</span>HTML<span class="tok-kw">&lt;/dt&gt;</span>           <span class="tok-com">&lt;!-- term --&gt;</span>
+  <span class="tok-kw">&lt;dd&gt;</span>HyperText Markup Language<span class="tok-kw">&lt;/dd&gt;</span>  <span class="tok-com">&lt;!-- description --&gt;</span>
+  <span class="tok-kw">&lt;dt&gt;</span>CSS<span class="tok-kw">&lt;/dt&gt;</span>
+  <span class="tok-kw">&lt;dd&gt;</span>Cascading Style Sheets<span class="tok-kw">&lt;/dd&gt;</span>
+<span class="tok-kw">&lt;/dl&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Comments <span class="tag">&lt;!-- --&gt;</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">Comments are invisible in the rendered output — they only appear in the source code.</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">&lt;!-- this is a comment --&gt;</span>
+<span class="tok-com">&lt;!--
+  multi-line
+  comment
+--&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML: Advanced Tables -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Advanced Tables</h2>
+          <div class="snippet-card">
+            <h3>Span Columns &amp; Rows <span class="tag">colspan, rowspan</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <table>
+                  <thead><tr><th>Name</th><th>Score</th></tr></thead>
+                  <tbody>
+                    <tr><td colspan="2">Andy (spans 2 cols)</td></tr>
+                    <tr><td rowspan="2">Kevin (spans 2 rows)</td><td>42</td></tr>
+                    <tr><td>1024</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;tr&gt;</span>
+  <span class="tok-kw">&lt;td</span> <span class="tok-str">colspan="2"</span><span class="tok-kw">&gt;</span>Andy<span class="tok-kw">&lt;/td&gt;</span>  <span class="tok-com">&lt;!-- spans 2 columns --&gt;</span>
+<span class="tok-kw">&lt;/tr&gt;</span>
+<span class="tok-kw">&lt;tr&gt;</span>
+  <span class="tok-kw">&lt;td</span> <span class="tok-str">rowspan="2"</span><span class="tok-kw">&gt;</span>Kevin<span class="tok-kw">&lt;/td&gt;</span>  <span class="tok-com">&lt;!-- spans 2 rows --&gt;</span>
+  <span class="tok-kw">&lt;td&gt;</span>42<span class="tok-kw">&lt;/td&gt;</span>
+<span class="tok-kw">&lt;/tr&gt;</span>
+<span class="tok-kw">&lt;tr&gt;</span>
+  <span class="tok-kw">&lt;td&gt;</span>1024<span class="tok-kw">&lt;/td&gt;</span>
+<span class="tok-kw">&lt;/tr&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Full Table with Caption &amp; Footer <span class="tag">caption, tfoot</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <table>
+                  <caption>Player Scores</caption>
+                  <thead><tr><th>Name</th><th>Score</th></tr></thead>
+                  <tfoot><tr><td>Total</td><td>1066</td></tr></tfoot>
+                  <tbody>
+                    <tr><td>Andy</td><td>42</td></tr>
+                    <tr><td>Kevin</td><td>1024</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;table&gt;</span>
+  <span class="tok-kw">&lt;caption&gt;</span>Player Scores<span class="tok-kw">&lt;/caption&gt;</span>
+  <span class="tok-kw">&lt;thead&gt;</span>
+    <span class="tok-kw">&lt;tr&gt;</span><span class="tok-kw">&lt;th&gt;</span>Name<span class="tok-kw">&lt;/th&gt;</span><span class="tok-kw">&lt;th&gt;</span>Score<span class="tok-kw">&lt;/th&gt;</span><span class="tok-kw">&lt;/tr&gt;</span>
+  <span class="tok-kw">&lt;/thead&gt;</span>
+  <span class="tok-kw">&lt;tfoot&gt;</span>
+    <span class="tok-kw">&lt;tr&gt;</span><span class="tok-kw">&lt;td&gt;</span>Total<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;td&gt;</span>1066<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;/tr&gt;</span>
+  <span class="tok-kw">&lt;/tfoot&gt;</span>
+  <span class="tok-kw">&lt;tbody&gt;</span>
+    <span class="tok-kw">&lt;tr&gt;</span><span class="tok-kw">&lt;td&gt;</span>Andy<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;td&gt;</span>42<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;/tr&gt;</span>
+    <span class="tok-kw">&lt;tr&gt;</span><span class="tok-kw">&lt;td&gt;</span>Kevin<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;td&gt;</span>1024<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;/tr&gt;</span>
+  <span class="tok-kw">&lt;/tbody&gt;</span>
+<span class="tok-kw">&lt;/table&gt;</span></pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Column Groups <span class="tag">colgroup, col</span></h3>
+            <p class="desc">Style entire columns at once.</p>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <table>
+                  <colgroup><col style="background:rgba(255,90,46,0.15)"></colgroup>
+                  <tr><td>Andy</td><td>42</td></tr>
+                  <tr><td>Kevin</td><td>1024</td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">&lt;table&gt;</span>
+  <span class="tok-kw">&lt;colgroup&gt;</span>
+    <span class="tok-kw">&lt;col</span> <span class="tok-str">style="background: #ffe"</span><span class="tok-kw">&gt;</span>  <span class="tok-com">&lt;!-- style col 1 --&gt;</span>
+  <span class="tok-kw">&lt;/colgroup&gt;</span>
+  <span class="tok-kw">&lt;tr&gt;</span><span class="tok-kw">&lt;td&gt;</span>Andy<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;td&gt;</span>42<span class="tok-kw">&lt;/td&gt;</span><span class="tok-kw">&lt;/tr&gt;</span>
+<span class="tok-kw">&lt;/table&gt;</span>
+
+<span class="tok-com">&lt;!-- span multiple columns --&gt;</span>
+<span class="tok-kw">&lt;colgroup&gt;</span>
+  <span class="tok-kw">&lt;col</span> <span class="tok-str">span="2"</span> <span class="tok-str">style="background: #ffe"</span><span class="tok-kw">&gt;</span>
+<span class="tok-kw">&lt;/colgroup&gt;</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END HTML PANEL ===== -->
+
+      <!-- ============ CSS PANEL ============ -->
+      <section class="lib-panel" id="panel-css" aria-label="CSS reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-brace"/></svg>
+          <div>
+            <h1>CSS</h1>
+            <p>Cascading Style Sheets — the visual layer of the web</p>
+          </div>
+        </div>
+
+        <!-- CSS: Selectors -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Selectors</h2>
+          <div class="snippet-card">
+            <h3>Basic Selectors <span class="tag">element, .class, #id</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p style="color:navy">This p is styled by element selector.</p>
+                <span class="demo-box" style="display:inline-grid;width:auto;padding:8px 16px">.button class</span>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* element selector */</span>
+<span class="tok-kw">p</span> { color: navy; }
+
+<span class="tok-com">/* class selector */</span>
+<span class="tok-kw">.button</span> { padding: 8px 16px; }
+
+<span class="tok-com">/* id selector */</span>
+<span class="tok-kw">#header</span> { height: 80px; }
+
+<span class="tok-com">/* universal selector */</span>
+<span class="tok-kw">*</span> { margin: 0; box-sizing: border-box; }
+
+<span class="tok-com">/* descendant combinator */</span>
+<span class="tok-kw">nav a</span> { text-decoration: none; }
+
+<span class="tok-com">/* child combinator */</span>
+<span class="tok-kw">ul &gt; li</span> { list-style: none; }
+
+<span class="tok-com">/* adjacent sibling */</span>
+<span class="tok-kw">h2 + p</span> { margin-top: 0; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Attribute &amp; Pseudo Selectors <span class="tag">[attr], :hover, ::before</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <a href="#" style="color:var(--accent-deep);text-decoration:none">Hover me — I turn orange on hover</a>
+                <ul style="list-style:none;padding:0;margin:4px 0">
+                  <li style="background:rgba(6,13,28,0.04);padding:4px 8px;border-radius:4px">Odd item (nth-child)</li>
+                  <li style="padding:4px 8px">Even item</li>
+                  <li style="background:rgba(6,13,28,0.04);padding:4px 8px;border-radius:4px">Odd item</li>
+                </ul>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* attribute selector */</span>
+<span class="tok-kw">input[type="text"]</span> { border: 1px solid gray; }
+
+<span class="tok-com">/* pseudo-class — state */</span>
+<span class="tok-kw">a:hover</span> { color: orange; }
+<span class="tok-kw">a:focus-visible</span> { outline: 2px solid orange; }
+<span class="tok-kw">li:nth-child(odd)</span> { background: #f5f5f5; }
+
+<span class="tok-com">/* pseudo-element — generated content */</span>
+<span class="tok-kw">p::before</span> { content: "&gt; "; }
+<span class="tok-kw">p::first-line</span> { font-weight: bold; }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Box Model -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Box Model</h2>
+          <div class="snippet-card">
+            <h3>Margin, Padding, Border <span class="tag">margin, padding, border</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="width:200px;height:60px;padding:16px;margin:12px auto;border:2px solid var(--navy-950);border-radius:12px;background:var(--accent);color:var(--white);display:grid;place-items:center;font-size:var(--text-xs)">200×60 box with padding+border</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.box</span> {
+  width: 200px;
+  height: 100px;
+  padding: 16px;          <span class="tok-com">/* inside space */</span>
+  margin: 24px auto;      <span class="tok-com">/* outside space, centered */</span>
+  border: 2px solid #333;  <span class="tok-com">/* edge line */</span>
+  border-radius: 12px;     <span class="tok-com">/* rounded corners */</span>
+  box-sizing: border-box;  <span class="tok-com">/* padding included in width */</span>
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Colors & Variables -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Colors &amp; Variables</h2>
+          <div class="snippet-card">
+            <h3>Custom Properties <span class="tag">--var, var()</span></h3>
+            <p class="desc">Define design tokens once, reuse everywhere.</p>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <span style="background:var(--accent);color:var(--white);padding:var(--space-4);border-radius:8px;font-size:var(--text-sm)">Button using var(--accent) + var(--space-4)</span>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">:root</span> {
+  --accent: #FF5A2E;
+  --bg: #060D1C;
+  --space-4: 16px;
+}
+
+<span class="tok-kw">.btn</span> {
+  background: <span class="tok-fn">var</span>(--accent);
+  padding: <span class="tok-fn">var</span>(--space-4);
+  color: white;
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Flexbox -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Flexbox</h2>
+          <div class="snippet-card">
+            <h3>Flex Container <span class="tag">display: flex</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div class="demo-flex">
+                  <span>Item 1</span><span>Item 2</span><span>Item 3</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.container</span> {
+  display: flex;
+  flex-direction: row;        <span class="tok-com">/* row | column */</span>
+  justify-content: center;    <span class="tok-com">/* horizontal alignment */</span>
+  align-items: center;        <span class="tok-com">/* vertical alignment */</span>
+  gap: 16px;                  <span class="tok-com">/* spacing between items */</span>
+  flex-wrap: wrap;            <span class="tok-com">/* allow wrapping */</span>
+}
+
+<span class="tok-kw">.item</span> {
+  flex: 1;                    <span class="tok-com">/* grow to fill space */</span>
+  flex-shrink: 0;             <span class="tok-com">/* don't shrink */</span>
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Grid -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">CSS Grid</h2>
+          <div class="snippet-card">
+            <h3>Grid Container <span class="tag">display: grid</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div class="demo-grid">
+                  <span>1</span><span>2</span><span>3</span>
+                  <span>4</span><span>5</span><span>6</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.grid</span> {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  <span class="tok-com">/* 3 equal columns */</span>
+  grid-template-columns: 1fr 2fr 1fr;     <span class="tok-com">/* ratio columns */</span>
+  gap: 24px;
+}
+
+<span class="tok-com">/* responsive without media queries */</span>
+<span class="tok-kw">.auto-grid</span> {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Positioning -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Positioning</h2>
+          <div class="snippet-card">
+            <h3>Position Values <span class="tag">static, relative, absolute, fixed, sticky</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="position:relative;width:100%;height:80px;background:rgba(6,13,28,0.06);border-radius:8px;padding:8px">
+                  <span style="position:absolute;top:4px;right:8px;background:var(--accent);color:var(--white);padding:4px 10px;border-radius:6px;font-size:var(--text-xs)">absolute top-right</span>
+                  <span style="position:relative;top:0;left:0;background:rgba(6,13,28,0.1);padding:4px 10px;border-radius:6px;font-size:var(--text-xs)">relative</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.static</span>  { position: static; }   <span class="tok-com">/* default, in flow */</span>
+<span class="tok-kw">.relative</span> { position: relative; } <span class="tok-com">/* offset from normal position */</span>
+<span class="tok-kw">.absolute</span> { position: absolute; } <span class="tok-com">/* relative to nearest positioned ancestor */</span>
+<span class="tok-kw">.fixed</span>    { position: fixed; }    <span class="tok-com">/* stays on screen, relative to viewport */</span>
+<span class="tok-kw">.sticky</span>   { position: sticky; top: 0; } <span class="tok-com">/* sticks when scrolled */</span>
+
+<span class="tok-com">/* absolute example */</span>
+<span class="tok-kw">.parent</span> { position: relative; }
+<span class="tok-kw">.child</span>  { position: absolute; top: 0; right: 0; }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Animations -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Animations &amp; Transitions</h2>
+          <div class="snippet-card">
+            <h3>Transition <span class="tag">transition</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover the box</div>
+              <div class="out-content">
+                <span class="demo-transition">Hover me — I lift up</span>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.btn</span> {
+  background: orange;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+<span class="tok-kw">.btn:hover</span> {
+  background: darkorange;
+  transform: translateY(-2px);
+}</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Keyframe Animation <span class="tag">@keyframes</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — bouncing forever</div>
+              <div class="out-content">
+                <div class="demo-animation"></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+<span class="tok-kw">.element</span> {
+  animation: slideIn 0.6s ease forwards;
+  animation-delay: 0.2s;
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Responsive -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Responsive Design</h2>
+          <div class="snippet-card">
+            <h3>Media Queries <span class="tag">@media</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — resize your browser to see columns change</div>
+              <div class="out-content">
+                <div style="display:grid;grid-template-columns:1fr;gap:8px;width:100%" id="demoMediaQuery">
+                  <span style="background:rgba(255,90,46,0.15);padding:10px;border-radius:8px;text-align:center;font-size:var(--text-xs)">1 col on mobile</span>
+                  <span style="background:rgba(255,90,46,0.15);padding:10px;border-radius:8px;text-align:center;font-size:var(--text-xs)">2 cols on tablet</span>
+                  <span style="background:rgba(255,90,46,0.15);padding:10px;border-radius:8px;text-align:center;font-size:var(--text-xs)">3 cols on desktop</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* mobile-first base styles */</span>
+<span class="tok-kw">.grid</span> { grid-template-columns: 1fr; }
+
+<span class="tok-com">/* tablet and up */</span>
+<span class="tok-kw">@media</span> (min-width: 768px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+<span class="tok-com">/* desktop and up */</span>
+<span class="tok-kw">@media</span> (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+<span class="tok-com">/* respect reduced motion */</span>
+<span class="tok-kw">@media</span> (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Combinators -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Combinators</h2>
+          <div class="snippet-card">
+            <h3>Descendant, Child, Sibling <span class="tag">space, &gt;, +, ~</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div class="demo-combinator">
+                  <p>descendant p (styled by <code>div p</code>)</p>
+                  <p class="demo-first">first p after h4 — adjacent sibling</p>
+                  <p>second p — general sibling</p>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* descendant — any nested element */</span>
+<span class="tok-kw">div p</span> { color: navy; }
+
+<span class="tok-com">/* child — direct child only */</span>
+<span class="tok-kw">ul &gt; li</span> { list-style: none; }
+
+<span class="tok-com">/* adjacent sibling — immediately after */</span>
+<span class="tok-kw">h4 + p</span> { font-weight: bold; }
+
+<span class="tok-com">/* general sibling — any sibling after */</span>
+<span class="tok-kw">h4 ~ p</span> { color: gray; }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Attribute Selectors -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Attribute Selectors</h2>
+          <div class="snippet-card">
+            <h3>Attribute Matching <span class="tag">[attr], [attr=value], [attr^=], [attr$=]</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <input type="text" placeholder="[type=text] styled" style="border:2px solid var(--accent);border-radius:6px;padding:4px 8px">
+                <input type="email" placeholder="[type=email] unstyled" style="margin-left:8px">
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* has attribute */</span>
+<span class="tok-kw">div[attr]</span> { ... }
+
+<span class="tok-com">/* exact value */</span>
+<span class="tok-kw">input[type="text"]</span> { border: 2px solid orange; }
+
+<span class="tok-com">/* starts with */</span>
+<span class="tok-kw">a[href^="https"]</span> { color: green; }
+
+<span class="tok-com">/* ends with */</span>
+<span class="tok-kw">a[href$=".pdf"]</span> { color: red; }
+
+<span class="tok-com">/* contains substring */</span>
+<span class="tok-kw">div[class*="btn"]</span> { ... }
+
+<span class="tok-com">/* whitespace-separated word */</span>
+<span class="tok-kw">div[class~="active"]</span> { ... }
+
+<span class="tok-com">/* case-insensitive */</span>
+<span class="tok-kw">input[type="text" i]</span> { ... }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Pseudo-classes & Elements -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Pseudo-classes &amp; Elements</h2>
+          <div class="snippet-card">
+            <h3>Link States <span class="tag">:link, :visited, :hover, :active</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover and click these links</div>
+              <div class="out-content">
+                <a href="#panel-css" class="demo-link">Hover me — I turn orange</a>
+                <a href="#panel-css" class="demo-link" style="margin-left:12px">Click me — I flash red briefly</a>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* ordering matters: LVHA */</span>
+<span class="tok-kw">a:link</span>    { color: blue; }       <span class="tok-com">/* unvisited */</span>
+<span class="tok-kw">a:visited</span> { color: purple; }     <span class="tok-com">/* visited */</span>
+<span class="tok-kw">a:hover</span>   { color: orange; }     <span class="tok-com">/* mouse over */</span>
+<span class="tok-kw">a:active</span>  { color: red; }        <span class="tok-com">/* being clicked */</span>
+<span class="tok-kw">a:focus-visible</span> { outline: 2px solid orange; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>nth-child <span class="tag">:nth-child(odd), :first-child, :last-child</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <ul class="demo-nth" style="list-style:none;padding:0;margin:0">
+                  <li>1 — first-child</li>
+                  <li>2 — odd</li>
+                  <li>3 — even</li>
+                  <li>4 — odd</li>
+                  <li>5 — last-child</li>
+                </ul>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">li:first-child</span>     { font-weight: bold; }
+<span class="tok-kw">li:last-child</span>      { color: red; }
+<span class="tok-kw">li:nth-child(odd)</span>  { background: #f5f5f5; }
+<span class="tok-kw">li:nth-child(even)</span> { background: white; }
+<span class="tok-kw">li:nth-child(2n+1)</span> { <span class="tok-com">/* same as odd */</span> }
+<span class="tok-kw">li:not(.active)</span>    { opacity: 0.5; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Pseudo-elements <span class="tag">::before, ::after, ::first-line</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <p class="demo-before">This paragraph has generated content before it.</p>
+                <p class="demo-after">This paragraph has generated content after it.</p>
+                <p class="demo-firstline">This paragraph's first line is bold. The second line is normal. The third line is also normal.</p>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* generated content before */</span>
+<span class="tok-kw">p::before</span> {
+  content: "&gt; ";
+  color: orange;
+}
+
+<span class="tok-com">/* generated content after */</span>
+<span class="tok-kw">p::after</span> {
+  content: " ←";
+  color: green;
+}
+
+<span class="tok-com">/* style first line of text */</span>
+<span class="tok-kw">p::first-line</span> { font-weight: bold; }
+
+<span class="tok-com">/* style first letter */</span>
+<span class="tok-kw">p::first-letter</span> { font-size: 2em; }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Fonts -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Fonts</h2>
+          <div class="snippet-card">
+            <h3>font-family <span class="tag">serif, sans-serif, monospace</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="font-family:'Times New Roman',serif;font-size:var(--text-sm)">Aa Bb Cc — serif</div>
+                <div style="font-family:Arial,sans-serif;font-size:var(--text-sm)">Aa Bb Cc — sans-serif</div>
+                <div style="font-family:'Courier New',monospace;font-size:var(--text-sm)">Aa Bb Cc — monospace</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.serif</span>    { font-family: "Times New Roman", serif; }
+<span class="tok-kw">.sans</span>     { font-family: Arial, sans-serif; }
+<span class="tok-kw">.mono</span>     { font-family: "Courier New", monospace; }
+
+<span class="tok-com">/* Google Fonts (only allowed external resource) */</span>
+<span class="tok-kw">@import</span> url(<span class="tok-str">'https://fonts.googleapis.com/css2?family=Inter'</span>);</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>font-size <span class="tag">px, em, rem, %</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <span style="font-size:32px">32px </span>
+                <span style="font-size:24px">24px </span>
+                <span style="font-size:16px">16px </span>
+                <span style="font-size:12px">12px</span>
+                <div style="margin-top:6px">
+                  <span style="font-size:2em">2em </span>
+                  <span style="font-size:1.5em">1.5em </span>
+                  <span style="font-size:1em">1em</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* absolute sizes */</span>
+<span class="tok-kw">.xl</span> { font-size: 32px; }
+<span class="tok-kw">.lg</span> { font-size: 24px; }
+<span class="tok-kw">.md</span> { font-size: 16px; }  <span class="tok-com">/* browser default */</span>
+
+<span class="tok-com">/* relative to parent (em) */</span>
+<span class="tok-kw">.double</span> { font-size: 2em; }
+<span class="tok-kw">.half</span>   { font-size: 0.5em; }
+
+<span class="tok-com">/* relative to root html (rem) */</span>
+<span class="tok-kw">.r-double</span> { font-size: 2rem; }
+
+<span class="tok-com">/* percentage of parent */</span>
+<span class="tok-kw">.pct</span> { font-size: 150%; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>font-weight &amp; font-style <span class="tag">weight, style</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <span style="font-weight:300">300 </span>
+                <span style="font-weight:400">400 </span>
+                <span style="font-weight:700">700 </span>
+                <span style="font-weight:900">900</span>
+                <div style="margin-top:6px">
+                  <span style="font-style:italic">italic</span> ·
+                  <span style="font-style:normal">normal</span> ·
+                  <span style="font-style:oblique">oblique</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* font-weight */</span>
+<span class="tok-kw">.light</span>  { font-weight: 300; }   <span class="tok-com">/* light */</span>
+<span class="tok-kw">.normal</span> { font-weight: 400; }   <span class="tok-com">/* normal */</span>
+<span class="tok-kw">.bold</span>   { font-weight: 700; }   <span class="tok-com">/* bold */</span>
+<span class="tok-kw">.black</span>  { font-weight: 900; }   <span class="tok-com">/* heaviest */</span>
+
+<span class="tok-com">/* font-style */</span>
+<span class="tok-kw">.italic</span> { font-style: italic; }
+<span class="tok-kw">.oblique</span> { font-style: oblique; }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS: Text Properties -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Text Properties</h2>
+          <div class="snippet-card">
+            <h3>text-align <span class="tag">left, center, right, justify</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="text-align:left;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">left</div>
+                <div style="text-align:center;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">center</div>
+                <div style="text-align:right;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">right</div>
+                <div style="text-align:justify;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">justify — text stretches to fill the width evenly</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.left</span>    { text-align: left; }
+<span class="tok-kw">.center</span>  { text-align: center; }
+<span class="tok-kw">.right</span>   { text-align: right; }
+<span class="tok-kw">.justify</span> { text-align: justify; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>line-height <span class="tag">spacing between lines</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="line-height:0.8em;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">0.8em<br>tight lines</div>
+                <div style="line-height:1.5em;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">1.5em<br>comfortable</div>
+                <div style="line-height:2em;border:1px dashed rgba(6,13,28,0.15);padding:4px;margin:2px 0">2em<br>airy lines</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.tight</span>  { line-height: 0.8em; }
+<span class="tok-kw">.normal</span> { line-height: 1.5em; }  <span class="tok-com">/* recommended */</span>
+<span class="tok-kw">.airy</span>   { line-height: 2em; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>letter-spacing &amp; word-spacing <span class="tag">tracking</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="letter-spacing:0.1em;margin:2px 0">letter-spacing 0.1em</div>
+                <div style="letter-spacing:0.5em;margin:2px 0">letter-spacing 0.5em</div>
+                <div style="word-spacing:0.5em;margin:2px 0">word spacing 0.5em — wide gaps</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.tight-letters</span>  { letter-spacing: 0.1em; }
+<span class="tok-kw">.wide-letters</span>   { letter-spacing: 0.5em; }
+<span class="tok-kw">.wide-words</span>     { word-spacing: 0.5em; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>text-transform <span class="tag">uppercase, lowercase, capitalize</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div style="text-transform:none;margin:2px 0">abc ABC — none</div>
+                <div style="text-transform:capitalize;margin:2px 0">abc ABC — capitalize</div>
+                <div style="text-transform:lowercase;margin:2px 0">abc ABC — lowercase</div>
+                <div style="text-transform:uppercase;margin:2px 0">abc ABC — uppercase</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.none</span>       { text-transform: none; }
+<span class="tok-kw">.capitalize</span> { text-transform: capitalize; }
+<span class="tok-kw">.lowercase</span>  { text-transform: lowercase; }
+<span class="tok-kw">.uppercase</span>  { text-transform: uppercase; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>text-decoration <span class="tag">underline, line-through, none</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <span style="text-decoration:underline;margin-right:12px">underline</span>
+                <span style="text-decoration:line-through;margin-right:12px">line-through</span>
+                <span style="text-decoration:overline;margin-right:12px">overline</span>
+                <a href="#" style="text-decoration:none">no underline link</a>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.underline</span>     { text-decoration: underline; }
+<span class="tok-kw">.strike</span>        { text-decoration: line-through; }
+<span class="tok-kw">.overline</span>      { text-decoration: overline; }
+<span class="tok-kw">a</span>             { text-decoration: none; }  <span class="tok-com">/* remove link underline */</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END CSS PANEL ===== -->
+
+      <!-- ============ JAVASCRIPT PANEL ============ -->
+      <section class="lib-panel" id="panel-js" aria-label="JavaScript reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
+          <div>
+            <h1>JavaScript</h1>
+            <p>The programming language of the web — interactivity and logic</p>
+          </div>
+        </div>
+
+        <!-- JS: Variables -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Variables &amp; Data Types</h2>
+          <div class="snippet-card">
+            <h3>let, const, var <span class="tag">declaration</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> "hello"
+<span class="out-prompt">&gt;</span> 42
+<span class="out-prompt">&gt;</span> true
+<span class="out-prompt">&gt;</span> [1, 2, 3]
+<span class="out-prompt">&gt;</span> { name: "Jay" }
+<span class="out-prompt">&gt;</span> null
+<span class="out-prompt">&gt;</span> undefined</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">let</span> count = 0;          <span class="tok-com">// reassignable</span>
+<span class="tok-kw">const</span> PI = 3.14159;      <span class="tok-com">// cannot reassign</span>
+<span class="tok-kw">var</span> old = <span class="tok-str">"legacy"</span>;    <span class="tok-com">// function-scoped, avoid</span>
+
+<span class="tok-com">// Data types</span>
+<span class="tok-kw">const</span> str   = <span class="tok-str">"hello"</span>;           <span class="tok-com">// string</span>
+<span class="tok-kw">const</span> num   = <span class="tok-num">42</span>;                <span class="tok-com">// number</span>
+<span class="tok-kw">const</span> flag  = <span class="tok-kw">true</span>;              <span class="tok-com">// boolean</span>
+<span class="tok-kw">const</span> arr   = [<span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span>];           <span class="tok-com">// array</span>
+<span class="tok-kw">const</span> obj   = { name: <span class="tok-str">"Jay"</span> };     <span class="tok-com">// object</span>
+<span class="tok-kw">const</span> nil   = <span class="tok-kw">null</span>;               <span class="tok-com">// intentional empty</span>
+<span class="tok-kw">let</span> undef;                       <span class="tok-com">// undefined</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: Functions -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Functions</h2>
+          <div class="snippet-card">
+            <h3>Function Declarations &amp; Arrow Functions <span class="tag">function, =&gt;</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> greet("Jay")
+"Hello, Jay"
+<span class="out-prompt">&gt;</span> add(3, 4)
+7
+<span class="out-prompt">&gt;</span> multiply(3, 4)
+12
+<span class="out-prompt">&gt;</span> power(5)
+25
+<span class="out-prompt">&gt;</span> power(5, 3)
+125</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// function declaration</span>
+<span class="tok-kw">function</span> <span class="tok-fn">greet</span>(name) {
+  <span class="tok-kw">return</span> <span class="tok-str">"Hello, "</span> + name;
+}
+
+<span class="tok-com">// arrow function</span>
+<span class="tok-kw">const</span> add = (a, b) =&gt; a + b;
+
+<span class="tok-com">// arrow with body</span>
+<span class="tok-kw">const</span> <span class="tok-fn">multiply</span> = (a, b) =&gt; {
+  <span class="tok-kw">return</span> a * b;
+};
+
+<span class="tok-com">// default parameters</span>
+<span class="tok-kw">const</span> <span class="tok-fn">power</span> = (base, exp = <span class="tok-num">2</span>) =&gt; base ** exp;</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: DOM -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">DOM Manipulation</h2>
+          <div class="snippet-card">
+            <h3>Selecting &amp; Modifying Elements <span class="tag">querySelector, addEventListener</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Live demo — click the button</div>
+              <div class="out-content">
+                <button id="jsDemoBtn" type="button" style="background:var(--accent);color:var(--white);border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-family:var(--font-body)">Click me</button>
+                <span id="jsDemoOut" style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--accent-deep)"></span>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// select elements</span>
+<span class="tok-kw">const</span> btn   = document.<span class="tok-fn">querySelector</span>(<span class="tok-str">".btn"</span>);
+<span class="tok-kw">const</span> items = document.<span class="tok-fn">querySelectorAll</span>(<span class="tok-str">".item"</span>);
+
+<span class="tok-com">// modify content</span>
+btn.textContent = <span class="tok-str">"Click me"</span>;
+btn.innerHTML = <span class="tok-str">"&lt;strong&gt;Bold&lt;/strong&gt;"</span>;
+
+<span class="tok-com">// modify styles &amp; classes</span>
+btn.style.color = <span class="tok-str">"orange"</span>;
+btn.classList.<span class="tok-fn">add</span>(<span class="tok-str">"active"</span>);
+btn.classList.<span class="tok-fn">toggle</span>(<span class="tok-str">"hidden"</span>);
+
+<span class="tok-com">// event listener</span>
+btn.<span class="tok-fn">addEventListener</span>(<span class="tok-str">"click"</span>, (e) =&gt; {
+  console.<span class="tok-fn">log</span>(<span class="tok-str">"Clicked!"</span>, e.target);
+});</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: Arrays -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Array Methods</h2>
+          <div class="snippet-card">
+            <h3>map, filter, reduce <span class="tag">array</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> doubled
+[2, 4, 6, 8, 10]
+<span class="out-prompt">&gt;</span> evens
+[2, 4]
+<span class="out-prompt">&gt;</span> sum
+15
+<span class="out-prompt">&gt;</span> forEach
+1
+2
+3
+4
+5</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">const</span> nums = [<span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span>, <span class="tok-num">4</span>, <span class="tok-num">5</span>];
+
+<span class="tok-com">// map — transform each element</span>
+<span class="tok-kw">const</span> doubled = nums.<span class="tok-fn">map</span>(n =&gt; n * <span class="tok-num">2</span>);
+<span class="tok-com">// [2, 4, 6, 8, 10]</span>
+
+<span class="tok-com">// filter — keep matching elements</span>
+<span class="tok-kw">const</span> evens = nums.<span class="tok-fn">filter</span>(n =&gt; n % <span class="tok-num">2</span> === <span class="tok-num">0</span>);
+<span class="tok-com">// [2, 4]</span>
+
+<span class="tok-com">// reduce — accumulate to single value</span>
+<span class="tok-kw">const</span> sum = nums.<span class="tok-fn">reduce</span>((acc, n) =&gt; acc + n, <span class="tok-num">0</span>);
+<span class="tok-com">// 15</span>
+
+<span class="tok-com">// forEach — iterate, no return</span>
+nums.<span class="tok-fn">forEach</span>(n =&gt; console.<span class="tok-fn">log</span>(n));</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: Async -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Async &amp; Promises</h2>
+          <div class="snippet-card">
+            <h3>async/await <span class="tag">async, await, fetch</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output (illustrative)</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> getData("https://api.example.com/users")
+<span class="out-muted">// after ~200ms:</span>
+[{ id: 1, name: "Ada" }, { id: 2, name: "Lin" }]</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// fetch data with async/await</span>
+<span class="tok-kw">async function</span> <span class="tok-fn">getData</span>(url) {
+  <span class="tok-kw">try</span> {
+    <span class="tok-kw">const</span> res = <span class="tok-kw">await</span> <span class="tok-fn">fetch</span>(url);
+    <span class="tok-kw">if</span> (!res.ok) <span class="tok-kw">throw new</span> <span class="tok-fn">Error</span>(<span class="tok-str">"HTTP "</span> + res.status);
+    <span class="tok-kw">const</span> data = <span class="tok-kw">await</span> res.<span class="tok-fn">json</span>();
+    <span class="tok-kw">return</span> data;
+  } <span class="tok-kw">catch</span> (err) {
+    console.<span class="tok-fn">error</span>(<span class="tok-str">"Fetch failed:"</span>, err);
+  }
+}
+
+<span class="tok-fn">getData</span>(<span class="tok-str">"https://api.example.com/users"</span>)
+  .then(data =&gt; console.<span class="tok-fn">log</span>(data));</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: Objects -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Objects &amp; Destructuring</h2>
+          <div class="snippet-card">
+            <h3>Destructuring &amp; Spread <span class="tag">{}, ...</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> name
+"Jay"
+<span class="out-prompt">&gt;</span> role
+"dev"
+<span class="out-prompt">&gt;</span> first
+"Lua"
+<span class="out-prompt">&gt;</span> updated
+{ name: "Jay", role: "lead", skills: ["Lua", "Python"] }
+<span class="out-prompt">&gt;</span> allSkills
+["Lua", "Python", "C#"]
+<span class="out-prompt">&gt;</span> rest
+{ role: "dev", skills: ["Lua", "Python"] }</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">const</span> user = { name: <span class="tok-str">"Jay"</span>, role: <span class="tok-str">"dev"</span>, skills: [<span class="tok-str">"Lua"</span>, <span class="tok-str">"Python"</span>] };
+
+<span class="tok-com">// object destructuring</span>
+<span class="tok-kw">const</span> { name, role } = user;
+
+<span class="tok-com">// array destructuring</span>
+<span class="tok-kw">const</span> [first, second] = user.skills;
+
+<span class="tok-com">// spread — copy/merge</span>
+<span class="tok-kw">const</span> updated = { ...user, role: <span class="tok-str">"lead"</span> };
+<span class="tok-kw">const</span> allSkills = [...user.skills, <span class="tok-str">"C#"</span>];
+
+<span class="tok-com">// rest — collect remaining</span>
+<span class="tok-kw">const</span> { name, ...rest } = user;
+<span class="tok-com">// rest = { role: "dev", skills: [...] }</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: Conditionals -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Conditionals &amp; Loops</h2>
+          <div class="snippet-card">
+            <h3>if/else, ternary, switch <span class="tag">control flow</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output (score=85, age=21, day="Sat")</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> grade
+"B"
+<span class="out-prompt">&gt;</span> status
+"adult"
+<span class="out-prompt">&gt;</span> day = "Sat"
+"Rest"</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// if/else</span>
+<span class="tok-kw">if</span> (score &gt;= <span class="tok-num">90</span>) {
+  grade = <span class="tok-str">"A"</span>;
+} <span class="tok-kw">else if</span> (score &gt;= <span class="tok-num">80</span>) {
+  grade = <span class="tok-str">"B"</span>;
+} <span class="tok-kw">else</span> {
+  grade = <span class="tok-str">"C"</span>;
+}
+
+<span class="tok-com">// ternary</span>
+<span class="tok-kw">const</span> status = age &gt;= <span class="tok-num">18</span> ? <span class="tok-str">"adult"</span> : <span class="tok-str">"minor"</span>;
+
+<span class="tok-com">// switch</span>
+<span class="tok-kw">switch</span> (day) {
+  <span class="tok-kw">case</span> <span class="tok-str">"Mon"</span>: console.<span class="tok-fn">log</span>(<span class="tok-str">"Work"</span>); <span class="tok-kw">break</span>;
+  <span class="tok-kw">case</span> <span class="tok-str">"Sat"</span>:
+  <span class="tok-kw">case</span> <span class="tok-str">"Sun"</span>: console.<span class="tok-fn">log</span>(<span class="tok-str">"Rest"</span>); <span class="tok-kw">break</span>;
+  <span class="tok-kw">default</span>: console.<span class="tok-fn">log</span>(<span class="tok-str">"Normal"</span>);
+}
+
+<span class="tok-com">// loops</span>
+<span class="tok-kw">for</span> (<span class="tok-kw">let</span> i = <span class="tok-num">0</span>; i &lt; arr.length; i++) { ... }
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> item <span class="tok-kw">of</span> arr) { ... }    <span class="tok-com">// array values</span>
+<span class="tok-kw">for</span> (<span class="tok-kw">const</span> key <span class="tok-kw">in</span> obj) { ... }    <span class="tok-com">// object keys</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JS: Classes -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Classes</h2>
+          <div class="snippet-card">
+            <h3>Class Syntax <span class="tag">class, extends, constructor</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> const p = new Player("Jay", 100)
+<span class="out-prompt">&gt;</span> p.hp
+100
+<span class="out-prompt">&gt;</span> p.takeDamage(30)
+<span class="out-prompt">&gt;</span> p.hp
+70
+<span class="out-prompt">&gt;</span> p.isAlive()
+true
+<span class="out-prompt">&gt;</span> const e = new Enemy("Goblin", 50, 10)
+<span class="out-prompt">&gt;</span> e.attack(p)
+<span class="out-prompt">&gt;</span> p.hp
+60</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">class</span> <span class="tok-type">Player</span> {
+  <span class="tok-fn">constructor</span>(name, hp) {
+    <span class="tok-kw">this</span>.name = name;
+    <span class="tok-kw">this</span>.hp = hp;
+  }
+  <span class="tok-fn">takeDamage</span>(n) {
+    <span class="tok-kw">this</span>.hp = Math.<span class="tok-fn">max</span>(<span class="tok-num">0</span>, <span class="tok-kw">this</span>.hp - n);
+  }
+  <span class="tok-fn">isAlive</span>() { <span class="tok-kw">return</span> <span class="tok-kw">this</span>.hp &gt; <span class="tok-num">0</span>; }
+}
+
+<span class="tok-kw">class</span> <span class="tok-type">Enemy</span> <span class="tok-kw">extends</span> <span class="tok-type">Player</span> {
+  <span class="tok-fn">constructor</span>(name, hp, damage) {
+    <span class="tok-fn">super</span>(name, hp);
+    <span class="tok-kw">this</span>.damage = damage;
+  }
+  <span class="tok-fn">attack</span>(target) { target.<span class="tok-fn">takeDamage</span>(<span class="tok-kw">this</span>.damage); }
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END JS PANEL ===== -->
+
+      <!-- ============ PYTHON PANEL ============ -->
+      <section class="lib-panel" id="panel-python" aria-label="Python reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-python"/></svg>
+          <div>
+            <h1>Python</h1>
+            <p>Beginner library — syntax, data structures, and common patterns</p>
+          </div>
+        </div>
+
+        <!-- Python: Variables & Types -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Variables &amp; Types</h2>
+          <div class="snippet-card">
+            <h3>Basic Types <span class="tag">str, int, float, bool</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> print(type(name))
+&lt;class 'str'&gt;
+<span class="out-prompt">&gt;&gt;&gt;</span> print(isinstance(age, int))
+True
+<span class="out-prompt">&gt;&gt;&gt;</span> print(f"My name is {name}, age {age}")
+My name is Jaybond, age 21</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre>name = <span class="tok-str">"Jaybond"</span>        <span class="tok-com"># string</span>
+age = <span class="tok-num">21</span>                  <span class="tok-com"># integer</span>
+height = <span class="tok-num">5.9</span>              <span class="tok-com"># float</span>
+is_dev = <span class="tok-kw">True</span>            <span class="tok-com"># boolean</span>
+nothing = <span class="tok-kw">None</span>           <span class="tok-com"># null value</span>
+
+<span class="tok-com"># type checking</span>
+<span class="tok-fn">print</span>(<span class="tok-fn">type</span>(name))         <span class="tok-com"># &lt;class 'str'&gt;</span>
+<span class="tok-fn">print</span>(<span class="tok-fn">isinstance</span>(age, int))  <span class="tok-com"># True</span>
+
+<span class="tok-com"># f-strings</span>
+<span class="tok-fn">print</span>(<span class="tok-str">f"My name is {name}, age {age}"</span>)</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python: Data Structures -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Data Structures</h2>
+          <div class="snippet-card">
+            <h3>List, Dict, Tuple, Set <span class="tag">[], {}, (), set()</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> fruits
+['apricot', 'banana', 'cherry']
+<span class="out-prompt">&gt;&gt;&gt;</span> user.get("name")
+'Jay'
+<span class="out-prompt">&gt;&gt;&gt;</span> x, y
+(10, 20)
+<span class="out-prompt">&gt;&gt;&gt;</span> print(tags)
+{'python', 'lua'}</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com"># list — ordered, mutable</span>
+fruits = [<span class="tok-str">"apple"</span>, <span class="tok-str">"banana"</span>]
+fruits.<span class="tok-fn">append</span>(<span class="tok-str">"cherry"</span>)
+fruits[<span class="tok-num">0</span>] = <span class="tok-str">"apricot"</span>
+
+<span class="tok-com"># dict — key-value pairs</span>
+user = {<span class="tok-str">"name"</span>: <span class="tok-str">"Jay"</span>, <span class="tok-str">"role"</span>: <span class="tok-str">"dev"</span>}
+user[<span class="tok-str">"email"</span>] = <span class="tok-str">"jay@example.com"</span>
+<span class="tok-fn">print</span>(user.<span class="tok-fn">get</span>(<span class="tok-str">"name"</span>))
+
+<span class="tok-com"># tuple — ordered, immutable</span>
+point = (<span class="tok-num">10</span>, <span class="tok-num">20</span>)
+x, y = point            <span class="tok-com"># unpacking</span>
+
+<span class="tok-com"># set — unique values</span>
+tags = {<span class="tok-str">"python"</span>, <span class="tok-str">"lua"</span>, <span class="tok-str">"python"</span>}
+<span class="tok-fn">print</span>(tags)  <span class="tok-com"># {'python', 'lua'}</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python: Control Flow -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Control Flow</h2>
+          <div class="snippet-card">
+            <h3>if/elif/else &amp; Loops <span class="tag">if, for, while</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output (score=85)</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> grade
+'B'
+<span class="out-prompt">&gt;&gt;&gt;</span> for i in range(5): print(i)
+0
+1
+2
+3
+4
+<span class="out-prompt">&gt;&gt;&gt;</span> squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com"># conditionals</span>
+<span class="tok-kw">if</span> score &gt;= <span class="tok-num">90</span>:
+    grade = <span class="tok-str">"A"</span>
+<span class="tok-kw">elif</span> score &gt;= <span class="tok-num">80</span>:
+    grade = <span class="tok-str">"B"</span>
+<span class="tok-kw">else</span>:
+    grade = <span class="tok-str">"C"</span>
+
+<span class="tok-com"># for loop over iterable</span>
+<span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-num">5</span>):
+    <span class="tok-fn">print</span>(i)
+
+<span class="tok-kw">for</span> fruit <span class="tok-kw">in</span> fruits:
+    <span class="tok-fn">print</span>(fruit)
+
+<span class="tok-com"># while loop</span>
+count = <span class="tok-num">0</span>
+<span class="tok-kw">while</span> count &lt; <span class="tok-num">3</span>:
+    <span class="tok-fn">print</span>(count)
+    count += <span class="tok-num">1</span>
+
+<span class="tok-com"># list comprehension</span>
+squares = [x**<span class="tok-num">2</span> <span class="tok-kw">for</span> x <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-num">10</span>)]</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python: Functions -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Functions</h2>
+          <div class="snippet-card">
+            <h3>def, args, lambda <span class="tag">function</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> greet("Jay")
+'Hello, Jay!'
+<span class="out-prompt">&gt;&gt;&gt;</span> greet("Jay", "Hi")
+'Hi, Jay!'
+<span class="out-prompt">&gt;&gt;&gt;</span> sum_all(1, 2, 3, 4)
+10
+<span class="out-prompt">&gt;&gt;&gt;</span> make_user(name="Jay", role="dev")
+{'name': 'Jay', 'role': 'dev'}
+<span class="out-prompt">&gt;&gt;&gt;</span> square(5)
+25</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com"># basic function</span>
+<span class="tok-kw">def</span> <span class="tok-fn">greet</span>(name, greeting=<span class="tok-str">"Hello"</span>):
+    <span class="tok-kw">return</span> <span class="tok-str">f"{greeting}, {name}!"</span>
+
+<span class="tok-fn">print</span>(<span class="tok-fn">greet</span>(<span class="tok-str">"Jay"</span>))           <span class="tok-com"># Hello, Jay!</span>
+<span class="tok-fn">print</span>(<span class="tok-fn">greet</span>(<span class="tok-str">"Jay"</span>, <span class="tok-str">"Hi"</span>))     <span class="tok-com"># Hi, Jay!</span>
+
+<span class="tok-com"># *args and **kwargs</span>
+<span class="tok-kw">def</span> <span class="tok-fn">sum_all</span>(*args):
+    <span class="tok-kw">return</span> <span class="tok-fn">sum</span>(args)
+
+<span class="tok-kw">def</span> <span class="tok-fn">make_user</span>(**kwargs):
+    <span class="tok-kw">return</span> kwargs
+
+<span class="tok-com"># lambda — inline function</span>
+square = <span class="tok-kw">lambda</span> x: x ** <span class="tok-num">2</span>
+<span class="tok-fn">print</span>(<span class="tok-fn">square</span>(<span class="tok-num">5</span>))  <span class="tok-com"># 25</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python: Classes -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Classes &amp; OOP</h2>
+          <div class="snippet-card">
+            <h3>Class, __init__, inheritance <span class="tag">class</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> p = Player("Jay", 100)
+<span class="out-prompt">&gt;&gt;&gt;</span> print(p)
+Jay (HP: 100)
+<span class="out-prompt">&gt;&gt;&gt;</span> e = Enemy("Goblin", 50, 10)
+<span class="out-prompt">&gt;&gt;&gt;</span> e.attack(p)
+<span class="out-prompt">&gt;&gt;&gt;</span> print(p)
+Jay (HP: 90)</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">class</span> <span class="tok-type">Player</span>:
+    <span class="tok-kw">def</span> <span class="tok-fn">__init__</span>(self, name, hp=<span class="tok-num">100</span>):
+        self.name = name
+        self.hp = hp
+
+    <span class="tok-kw">def</span> <span class="tok-fn">take_damage</span>(self, amount):
+        self.hp = <span class="tok-fn">max</span>(<span class="tok-num">0</span>, self.hp - amount)
+
+    <span class="tok-kw">def</span> <span class="tok-fn">__str__</span>(self):
+        <span class="tok-kw">return</span> <span class="tok-str">f"{self.name} (HP: {self.hp})"</span>
+
+<span class="tok-kw">class</span> <span class="tok-type">Enemy</span>(<span class="tok-type">Player</span>):
+    <span class="tok-kw">def</span> <span class="tok-fn">__init__</span>(self, name, hp, damage):
+        <span class="tok-fn">super</span>().<span class="tok-fn">__init__</span>(name, hp)
+        self.damage = damage
+
+    <span class="tok-kw">def</span> <span class="tok-fn">attack</span>(self, target):
+        target.<span class="tok-fn">take_damage</span>(self.damage)</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python: File I/O -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">File I/O</h2>
+          <div class="snippet-card">
+            <h3>Reading &amp; Writing Files <span class="tag">open, with</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> <span class="out-muted"># after writing data.txt</span>
+<span class="out-prompt">&gt;&gt;&gt;</span> print(content)
+Hello, file!</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com"># write to file</span>
+<span class="tok-kw">with</span> <span class="tok-fn">open</span>(<span class="tok-str">"data.txt"</span>, <span class="tok-str">"w"</span>) <span class="tok-kw">as</span> f:
+    f.<span class="tok-fn">write</span>(<span class="tok-str">"Hello, file!\n"</span>)
+
+<span class="tok-com"># read file</span>
+<span class="tok-kw">with</span> <span class="tok-fn">open</span>(<span class="tok-str">"data.txt"</span>, <span class="tok-str">"r"</span>) <span class="tok-kw">as</span> f:
+    content = f.<span class="tok-fn">read</span>()
+    <span class="tok-fn">print</span>(content)
+
+<span class="tok-com"># read line by line</span>
+<span class="tok-kw">with</span> <span class="tok-fn">open</span>(<span class="tok-str">"data.txt"</span>, <span class="tok-str">"r"</span>) <span class="tok-kw">as</span> f:
+    <span class="tok-kw">for</span> line <span class="tok-kw">in</span> f:
+        <span class="tok-fn">print</span>(line.<span class="tok-fn">strip</span>())</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python: Common Modules -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Common Modules</h2>
+          <div class="snippet-card">
+            <h3>os, sys, json, random <span class="tag">import</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Python output (illustrative)</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;&gt;&gt;</span> os.getcwd()
+'/home/jay/projects'
+<span class="out-prompt">&gt;&gt;&gt;</span> os.listdir(".")
+['main.py', 'data.txt', 'utils.py']
+<span class="out-prompt">&gt;&gt;&gt;</span> data = json.loads('{"name": "Jay"}')
+<span class="out-prompt">&gt;&gt;&gt;</span> data['name']
+'Jay'
+<span class="out-prompt">&gt;&gt;&gt;</span> random.randint(1, 100)
+42
+<span class="out-prompt">&gt;&gt;&gt;</span> random.choice(["a", "b", "c"])
+'b'</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">import</span> os
+<span class="tok-kw">import</span> json
+<span class="tok-kw">import</span> random
+<span class="tok-kw">import</span> sys
+
+<span class="tok-com"># os — file system</span>
+os.<span class="tok-fn">getcwd</span>()                    <span class="tok-com"># current directory</span>
+os.<span class="tok-fn">listdir</span>(<span class="tok-str">"."</span>)                 <span class="tok-com"># list files</span>
+os.<span class="tok-fn">path</span>.<span class="tok-fn">join</span>(<span class="tok-str">"folder"</span>, <span class="tok-str">"file.txt"</span>)
+
+<span class="tok-com"># json — parse/serialize</span>
+data = json.<span class="tok-fn">loads</span>(<span class="tok-str">'{"name": "Jay"}'</span>)
+text = json.<span class="tok-fn">dumps</span>(data, indent=<span class="tok-num">2</span>)
+
+<span class="tok-com"># random</span>
+random.<span class="tok-fn">randint</span>(<span class="tok-num">1</span>, <span class="tok-num">100</span>)
+random.<span class="tok-fn">choice</span>([<span class="tok-str">"a"</span>, <span class="tok-str">"b"</span>, <span class="tok-str">"c"</span>])
+random.<span class="tok-fn">shuffle</span>(my_list)</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END PYTHON PANEL ===== -->
+
+      <!-- ============ FLUTTER PANEL ============ -->
+      <section class="lib-panel" id="panel-flutter" aria-label="Flutter reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-flutter"/></svg>
+          <div>
+            <h1>Flutter</h1>
+            <p>Beginner library — Dart widgets, layouts, and state</p>
+          </div>
+        </div>
+
+        <!-- Flutter: Widget Basics -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Widget Basics</h2>
+          <div class="snippet-card">
+            <h3>StatelessWidget <span class="tag">widget</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Rendered widget (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock">
+                  <div class="phone-card">Hello, Jay!</div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">import</span> <span class="tok-str">'package:flutter/material.dart'</span>;
+
+<span class="tok-kw">class</span> <span class="tok-type">GreetingCard</span> <span class="tok-kw">extends</span> <span class="tok-type">StatelessWidget</span> {
+  <span class="tok-kw">final</span> String name;
+
+  <span class="tok-kw">const</span> <span class="tok-fn">GreetingCard</span>({<span class="tok-kw">super</span>.key, <span class="tok-kw">required</span> <span class="tok-kw">this</span>.name});
+
+  @override
+  Widget <span class="tok-fn">build</span>(BuildContext context) {
+    <span class="tok-kw">return</span> <span class="tok-type">Card</span>(
+      child: <span class="tok-type">Padding</span>(
+        padding: <span class="tok-type">EdgeInsets</span>.<span class="tok-fn">all</span>(<span class="tok-num">16.0</span>),
+        child: <span class="tok-type">Text</span>(<span class="tok-str">'Hello, $name!'</span>),
+      ),
+    );
+  }
+}</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>StatefulWidget <span class="tag">state</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Rendered widget (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock">
+                  <div class="phone-counter">Count: 0</div>
+                  <div class="phone-btn">Increment</div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">class</span> <span class="tok-type">Counter</span> <span class="tok-kw">extends</span> <span class="tok-type">StatefulWidget</span> {
+  <span class="tok-kw">const</span> <span class="tok-fn">Counter</span>({<span class="tok-kw">super</span>.key});
+
+  @override
+  State&lt;Counter&gt; <span class="tok-fn">createState</span>() =&gt; _CounterState();
+}
+
+<span class="tok-kw">class</span> _CounterState <span class="tok-kw">extends</span> State&lt;Counter&gt; {
+  <span class="tok-kw">int</span> _count = <span class="tok-num">0</span>;
+
+  @override
+  Widget <span class="tok-fn">build</span>(BuildContext context) {
+    <span class="tok-kw">return</span> <span class="tok-type">Column</span>(
+      children: [
+        <span class="tok-type">Text</span>(<span class="tok-str">'Count: $_count'</span>),
+        <span class="tok-type">ElevatedButton</span>(
+          onPressed: () =&gt; <span class="tok-fn">setState</span>(() =&gt; _count++),
+          child: <span class="tok-type">Text</span>(<span class="tok-str">'Increment'</span>),
+        ),
+      ],
+    );
+  }
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flutter: Layouts -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Layout Widgets</h2>
+          <div class="snippet-card">
+            <h3>Column, Row, Stack <span class="tag">layout</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Rendered widget (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock">
+                  <div style="display:flex;flex-direction:column;gap:6px;width:100%">
+                    <span class="phone-pill">First</span>
+                    <span class="phone-pill">Second</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-evenly;width:100%;margin-top:8px">
+                    <span class="phone-star">★</span><span class="phone-star">★</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// Column — vertical layout</span>
+<span class="tok-type">Column</span>(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    <span class="tok-type">Text</span>(<span class="tok-str">'First'</span>),
+    <span class="tok-type">Text</span>(<span class="tok-str">'Second'</span>),
+  ],
+)
+
+<span class="tok-com">// Row — horizontal layout</span>
+<span class="tok-type">Row</span>(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [<span class="tok-type">Icon</span>(Icons.star), <span class="tok-type">Icon</span>(Icons.star)],
+)
+
+<span class="tok-com">// Stack — overlapping widgets</span>
+<span class="tok-type">Stack</span>(
+  children: [
+    <span class="tok-type">Container</span>(color: Colors.blue),
+    <span class="tok-type">Positioned</span>(top: <span class="tok-num">10</span>, left: <span class="tok-num">10</span>, child: <span class="tok-type">Text</span>(<span class="tok-str">'Overlay'</span>)),
+  ],
+)</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Container, Padding, SizedBox <span class="tag">sizing</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Rendered widget (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock">
+                  <div style="width:140px;height:60px;background:var(--accent);color:var(--white);display:grid;place-items:center;border-radius:12px;font-size:var(--text-xs)">Box</div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// Container — box with styling</span>
+<span class="tok-type">Container</span>(
+  width: <span class="tok-num">200</span>,
+  height: <span class="tok-num">100</span>,
+  padding: <span class="tok-type">EdgeInsets</span>.<span class="tok-fn">all</span>(<span class="tok-num">16</span>),
+  margin: <span class="tok-type">EdgeInsets</span>.<span class="tok-fn">symmetric</span>(vertical: <span class="tok-num">8</span>),
+  decoration: <span class="tok-type">BoxDecoration</span>(
+    color: Colors.orange,
+    borderRadius: <span class="tok-type">BorderRadius</span>.<span class="tok-fn">circular</span>(<span class="tok-num">12</span>),
+  ),
+  child: <span class="tok-type">Text</span>(<span class="tok-str">'Box'</span>),
+)
+
+<span class="tok-com">// SizedBox — fixed gap</span>
+<span class="tok-type">SizedBox</span>(height: <span class="tok-num">20</span>)
+
+<span class="tok-com">// Expanded — fill available space</span>
+<span class="tok-type">Row</span>(children: [
+  <span class="tok-type">Expanded</span>(child: <span class="tok-type">Container</span>(color: Colors.red)),
+  <span class="tok-type">Expanded</span>(flex: <span class="tok-num">2</span>, child: <span class="tok-type">Container</span>(color: Colors.blue)),
+])</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flutter: Lists -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Lists &amp; Grids</h2>
+          <div class="snippet-card">
+            <h3>ListView &amp; GridView <span class="tag">list</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Rendered widget (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock">
+                  <div class="phone-list-item">⌨ HTML</div>
+                  <div class="phone-list-item">⌨ CSS</div>
+                  <div class="phone-list-item">⌨ JS</div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// ListView.builder — efficient scrolling</span>
+<span class="tok-type">ListView</span>.<span class="tok-fn">builder</span>(
+  itemCount: items.length,
+  itemBuilder: (context, index) {
+    <span class="tok-kw">return</span> <span class="tok-type">ListTile</span>(
+      leading: <span class="tok-type">Icon</span>(Icons.code),
+      title: <span class="tok-type">Text</span>(items[index]),
+    );
+  },
+)
+
+<span class="tok-com">// GridView — grid layout</span>
+<span class="tok-type">GridView</span>.<span class="tok-fn">builder</span>(
+  gridDelegate: <span class="tok-type">SliverGridDelegateWithFixedCrossAxisCount</span>(
+    crossAxisCount: <span class="tok-num">2</span>,
+    crossAxisSpacing: <span class="tok-num">8</span>,
+    mainAxisSpacing: <span class="tok-num">8</span>,
+  ),
+  itemCount: items.length,
+  itemBuilder: (context, index) =&gt; <span class="tok-type">Card</span>(child: <span class="tok-type">Text</span>(items[index])),
+)</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flutter: Navigation -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Navigation</h2>
+          <div class="snippet-card">
+            <h3>Navigator.push &amp; pop <span class="tag">navigation</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Rendered widget (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock">
+                  <div class="phone-screen">Home Screen</div>
+                  <div class="phone-btn">→ push to DetailScreen</div>
+                  <div class="phone-btn" style="background:rgba(6,13,28,0.1);color:var(--text-on-light)">← pop back</div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// push to new screen</span>
+<span class="tok-type">Navigator</span>.<span class="tok-fn">push</span>(
+  context,
+  <span class="tok-type">MaterialPageRoute</span>(
+    builder: (context) =&gt; <span class="tok-type">DetailScreen</span>(item: myItem),
+  ),
+);
+
+<span class="tok-com">// go back</span>
+<span class="tok-type">Navigator</span>.<span class="tok-fn">pop</span>(context);
+
+<span class="tok-com">// pass data back</span>
+<span class="tok-kw">final</span> result = <span class="tok-kw">await</span> <span class="tok-type">Navigator</span>.<span class="tok-fn">push</span>(
+  context,
+  <span class="tok-type">MaterialPageRoute</span>(builder: (_) =&gt; <span class="tok-type">PickerScreen</span>()),
+);</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END FLUTTER PANEL ===== -->
+
+      <!-- ============ C# PANEL ============ -->
+      <section class="lib-panel" id="panel-csharp" aria-label="C# reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-csharp"/></svg>
+          <div>
+            <h1>C#</h1>
+            <p>Beginner library — syntax, types, and Unity-ready patterns</p>
+          </div>
+        </div>
+
+        <!-- C#: Variables & Types -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Variables &amp; Types</h2>
+          <div class="snippet-card">
+            <h3>Primitive Types <span class="tag">int, string, bool, float</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> Player Jaybond has score 100</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">int</span> score = <span class="tok-num">100</span>;
+<span class="tok-kw">string</span> name = <span class="tok-str">"Jaybond"</span>;
+<span class="tok-kw">bool</span> isAlive = <span class="tok-kw">true</span>;
+<span class="tok-kw">float</span> speed = <span class="tok-num">5.5f</span>;        <span class="tok-com">// f suffix for float</span>
+<span class="tok-kw">double</span> pi = <span class="tok-num">3.14159</span>;
+<span class="tok-kw">var</span> auto = <span class="tok-str">"inferred type"</span>;  <span class="tok-com">// compiler infers</span>
+
+<span class="tok-com">// string interpolation</span>
+<span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(<span class="tok-str">$"Player {name} has score {score}"</span>);
+
+<span class="tok-com">// arrays</span>
+<span class="tok-kw">int</span>[] nums = { <span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span> };
+<span class="tok-type">List</span>&lt;<span class="tok-kw">string</span>&gt; names = <span class="tok-kw">new</span> <span class="tok-type">List</span>&lt;<span class="tok-kw">string</span>&gt; { <span class="tok-str">"A"</span>, <span class="tok-str">"B"</span> };</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- C#: Control Flow -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Control Flow</h2>
+          <div class="snippet-card">
+            <h3>if/else, switch, loops <span class="tag">if, for, foreach</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output (hp=5, state="attack")</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> Low health
+<span class="out-prompt">&gt;</span> <span class="out-muted">// switch "attack":</span>
+Attack() called
+<span class="out-prompt">&gt;</span> <span class="out-muted">// for loop:</span>
+0 1 2 3 4 5 6 7 8 9</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">// if/else</span>
+<span class="tok-kw">if</span> (hp &lt;= <span class="tok-num">0</span>) {
+    <span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(<span class="tok-str">"Game Over"</span>);
+} <span class="tok-kw">else if</span> (hp &lt; <span class="tok-num">10</span>) {
+    <span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(<span class="tok-str">"Low health"</span>);
+} <span class="tok-kw">else</span> {
+    <span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(<span class="tok-str">"Healthy"</span>);
+}
+
+<span class="tok-com">// switch</span>
+<span class="tok-kw">switch</span> (state) {
+    <span class="tok-kw">case</span> <span class="tok-str">"idle"</span>: <span class="tok-fn">Idle</span>(); <span class="tok-kw">break</span>;
+    <span class="tok-kw">case</span> <span class="tok-str">"attack"</span>: <span class="tok-fn">Attack</span>(); <span class="tok-kw">break</span>;
+    <span class="tok-kw">default</span>: <span class="tok-fn">Idle</span>(); <span class="tok-kw">break</span>;
+}
+
+<span class="tok-com">// for loop</span>
+<span class="tok-kw">for</span> (<span class="tok-kw">int</span> i = <span class="tok-num">0</span>; i &lt; <span class="tok-num">10</span>; i++) {
+    <span class="tok-type">Console</span>.<span class="tok-fn">Write</span>(i + <span class="tok-str">" "</span>);
+}
+
+<span class="tok-com">// foreach</span>
+<span class="tok-kw">foreach</span> (<span class="tok-kw">var</span> item <span class="tok-kw">in</span> inventory) {
+    <span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(item);
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- C#: Classes -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Classes &amp; OOP</h2>
+          <div class="snippet-card">
+            <h3>Class, Properties, Methods <span class="tag">class</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> var p = new Player("Jay", 100);
+<span class="out-prompt">&gt;</span> p.Attack();
+Jay attacks!
+<span class="out-prompt">&gt;</span> var w = new Warrior("Xena", 120);
+<span class="out-prompt">&gt;</span> w.Attack();
+Xena swings sword!
+<span class="out-prompt">&gt;</span> p.TakeDamage(30);
+<span class="out-prompt">&gt;</span> p.HP
+70</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">public class</span> <span class="tok-type">Player</span> {
+    <span class="tok-kw">public string</span> Name { <span class="tok-kw">get</span>; <span class="tok-kw">set</span>; }
+    <span class="tok-kw">public int</span> HP { <span class="tok-kw">get</span>; <span class="tok-kw">private set</span>; }
+
+    <span class="tok-kw">public</span> <span class="tok-fn">Player</span>(<span class="tok-kw">string</span> name, <span class="tok-kw">int</span> hp) {
+        Name = name;
+        HP = hp;
+    }
+
+    <span class="tok-kw">public void</span> <span class="tok-fn">TakeDamage</span>(<span class="tok-kw">int</span> amount) {
+        HP = Math.<span class="tok-fn">Max</span>(<span class="tok-num">0</span>, HP - amount);
+    }
+
+    <span class="tok-kw">public virtual void</span> <span class="tok-fn">Attack</span>() {
+        <span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(<span class="tok-str">$"{Name} attacks!"</span>);
+    }
+}
+
+<span class="tok-com">// inheritance</span>
+<span class="tok-kw">public class</span> <span class="tok-type">Warrior</span> : <span class="tok-type">Player</span> {
+    <span class="tok-kw">public</span> <span class="tok-fn">Warrior</span>(<span class="tok-kw">string</span> name, <span class="tok-kw">int</span> hp) : <span class="tok-kw">base</span>(name, hp) { }
+
+    <span class="tok-kw">public override void</span> <span class="tok-fn">Attack</span>() {
+        <span class="tok-type">Console</span>.<span class="tok-fn">WriteLine</span>(<span class="tok-str">$"{Name} swings sword!"</span>);
+    }
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- C#: Unity Pattern -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Unity MonoBehaviour Pattern</h2>
+          <div class="snippet-card">
+            <h3>Basic Unity Script <span class="tag">Unity</span></h3>
+            <p class="desc">The most common pattern for game scripts in Unity.</p>
+            <div class="snippet-output">
+              <div class="out-label">Unity console (illustrative)</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> <span class="out-muted">// Start() called once:</span>
+rb = GetComponent&lt;Rigidbody&gt;()
+<span class="out-prompt">&gt;</span> <span class="out-muted">// Update() every frame:</span>
+moveX = Input.GetAxis("Horizontal")
+moveZ = Input.GetAxis("Vertical")
+rb.AddForce(move * speed)</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">using</span> UnityEngine;
+
+<span class="tok-kw">public class</span> <span class="tok-type">PlayerController</span> : <span class="tok-type">MonoBehaviour</span> {
+    <span class="tok-kw">public float</span> speed = <span class="tok-num">5f</span>;
+    <span class="tok-kw">private</span> Rigidbody rb;
+
+    <span class="tok-kw">void</span> <span class="tok-fn">Start</span>() {
+        rb = <span class="tok-fn">GetComponent</span>&lt;Rigidbody&gt;();
+    }
+
+    <span class="tok-kw">void</span> <span class="tok-fn">Update</span>() {
+        <span class="tok-kw">float</span> moveX = Input.<span class="tok-fn">GetAxis</span>(<span class="tok-str">"Horizontal"</span>);
+        <span class="tok-kw">float</span> moveZ = Input.<span class="tok-fn">GetAxis</span>(<span class="tok-str">"Vertical"</span>);
+        Vector3 move = <span class="tok-kw">new</span> Vector3(moveX, <span class="tok-num">0</span>, moveZ) * speed;
+        rb.<span class="tok-fn">AddForce</span>(move);
+    }
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- C#: Collections -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Collections &amp; LINQ</h2>
+          <div class="snippet-card">
+            <h3>List, Dictionary, LINQ <span class="tag">List, LINQ</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Console output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> scores
+[90, 75, 100, 60, 85]
+<span class="out-prompt">&gt;</span> total
+410
+<span class="out-prompt">&gt;</span> high (≥80)
+[90, 100, 85]
+<span class="out-prompt">&gt;</span> sorted
+[60, 75, 85, 90, 100]
+<span class="out-prompt">&gt;</span> best
+100
+<span class="out-prompt">&gt;</span> items["potion"]
+10</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">using</span> System.Collections.Generic;
+<span class="tok-kw">using</span> System.Linq;
+
+<span class="tok-com">// List</span>
+<span class="tok-kw">var</span> scores = <span class="tok-kw">new</span> <span class="tok-type">List</span>&lt;<span class="tok-kw">int</span>&gt; { <span class="tok-num">90</span>, <span class="tok-num">75</span>, <span class="tok-num">100</span>, <span class="tok-num">60</span> };
+scores.<span class="tok-fn">Add</span>(<span class="tok-num">85</span>);
+<span class="tok-kw">int</span> total = scores.<span class="tok-fn">Sum</span>();
+<span class="tok-kw">var</span> high = scores.<span class="tok-fn">Where</span>(s =&gt; s &gt;= <span class="tok-num">80</span>).<span class="tok-fn">ToList</span>();
+
+<span class="tok-com">// Dictionary</span>
+<span class="tok-kw">var</span> items = <span class="tok-kw">new</span> <span class="tok-type">Dictionary</span>&lt;<span class="tok-kw">string</span>, <span class="tok-kw">int</span>&gt; {
+    { <span class="tok-str">"sword"</span>, <span class="tok-num">50</span> },
+    { <span class="tok-str">"shield"</span>, <span class="tok-num">30</span> }
+};
+items[<span class="tok-str">"potion"</span>] = <span class="tok-num">10</span>;
+
+<span class="tok-com">// LINQ</span>
+<span class="tok-kw">var</span> sorted = scores.<span class="tok-fn">OrderBy</span>(s =&gt; s).<span class="tok-fn">ToList</span>();
+<span class="tok-kw">var</span> best = scores.<span class="tok-fn">Max</span>();</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END C# PANEL ===== -->
+
+      <!-- ============ LUA PANEL ============ -->
+      <section class="lib-panel" id="panel-lua" aria-label="Lua reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-lua"/></svg>
+          <div>
+            <h1>Lua</h1>
+            <p>Beginner library — scripting for game logic and embedded systems</p>
+          </div>
+        </div>
+
+        <!-- Lua: Variables & Types -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Variables &amp; Types</h2>
+          <div class="snippet-card">
+            <h3>Basic Types <span class="tag">nil, number, string, bool</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Lua output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> Player: Jaybond HP: 100
+<span class="out-prompt">&gt;</span> x, y (after swap)
+20  10</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">local</span> name = <span class="tok-str">"Jaybond"</span>      <span class="tok-com">-- string</span>
+<span class="tok-kw">local</span> hp = <span class="tok-num">100</span>               <span class="tok-com">-- number (Lua uses double)</span>
+<span class="tok-kw">local</span> is_alive = <span class="tok-kw">true</span>         <span class="tok-com">-- boolean</span>
+<span class="tok-kw">local</span> nothing = <span class="tok-kw">nil</span>            <span class="tok-com">-- nil (no value)</span>
+
+<span class="tok-com">-- string concatenation</span>
+<span class="tok-fn">print</span>(<span class="tok-str">"Player: "</span> .. name .. <span class="tok-str">" HP: "</span> .. hp)
+
+<span class="tok-com">-- multiple assignment</span>
+<span class="tok-kw">local</span> x, y = <span class="tok-num">10</span>, <span class="tok-num">20</span>
+x, y = y, x    <span class="tok-com">-- swap</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lua: Tables -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Tables (Arrays &amp; Dictionaries)</h2>
+          <div class="snippet-card">
+            <h3>Table as Array &amp; Map <span class="tag">table</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Lua output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> print(fruits[1])
+apple
+<span class="out-prompt">&gt;</span> print(#fruits)
+4
+<span class="out-prompt">&gt;</span> print(player.name)
+Jay
+<span class="out-prompt">&gt;</span> <span class="out-muted">-- pairs iteration:</span>
+name  Jay
+hp    100
+role  dev</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">-- table as array (1-indexed!)</span>
+<span class="tok-kw">local</span> fruits = { <span class="tok-str">"apple"</span>, <span class="tok-str">"banana"</span>, <span class="tok-str">"cherry"</span> }
+<span class="tok-fn">print</span>(fruits[<span class="tok-num">1</span>])  <span class="tok-com">-- "apple" (NOT 0)</span>
+<span class="tok-fn">table.insert</span>(fruits, <span class="tok-str">"date"</span>)
+<span class="tok-fn">print</span>(#fruits)   <span class="tok-com">-- length: 4</span>
+
+<span class="tok-com">-- table as dictionary</span>
+<span class="tok-kw">local</span> player = {
+  name = <span class="tok-str">"Jay"</span>,
+  hp = <span class="tok-num">100</span>,
+  role = <span class="tok-str">"dev"</span>
+}
+<span class="tok-fn">print</span>(player.name)  <span class="tok-com">-- "Jay"</span>
+player.email = <span class="tok-str">"jay@example.com"</span>  <span class="tok-com">-- add field</span>
+
+<span class="tok-com">-- iterate</span>
+<span class="tok-kw">for</span> key, value <span class="tok-kw">in</span> <span class="tok-fn">pairs</span>(player) <span class="tok-kw">do</span>
+  <span class="tok-fn">print</span>(key, value)
+<span class="tok-kw">end</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lua: Control Flow -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Control Flow</h2>
+          <div class="snippet-card">
+            <h3>if/elseif/else &amp; Loops <span class="tag">if, for, while</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Lua output (hp=5)</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> Low HP
+<span class="out-prompt">&gt;</span> <span class="out-muted">-- numeric for:</span>
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+<span class="out-prompt">&gt;</span> <span class="out-muted">-- ipairs:</span>
+1  apple
+2  banana
+3  cherry</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">-- conditionals</span>
+<span class="tok-kw">if</span> hp &lt;= <span class="tok-num">0</span> <span class="tok-kw">then</span>
+  <span class="tok-fn">print</span>(<span class="tok-str">"Game Over"</span>)
+<span class="tok-kw">elseif</span> hp &lt; <span class="tok-num">10</span> <span class="tok-kw">then</span>
+  <span class="tok-fn">print</span>(<span class="tok-str">"Low HP"</span>)
+<span class="tok-kw">else</span>
+  <span class="tok-fn">print</span>(<span class="tok-str">"Healthy"</span>)
+<span class="tok-kw">end</span>
+
+<span class="tok-com">-- numeric for loop</span>
+<span class="tok-kw">for</span> i = <span class="tok-num">1</span>, <span class="tok-num">5</span> <span class="tok-kw">do</span>
+  <span class="tok-fn">print</span>(<span class="tok-str">"Iteration "</span> .. i)
+<span class="tok-kw">end</span>
+
+<span class="tok-com">-- ipairs for arrays</span>
+<span class="tok-kw">for</span> index, value <span class="tok-kw">in</span> <span class="tok-fn">ipairs</span>(fruits) <span class="tok-kw">do</span>
+  <span class="tok-fn">print</span>(index, value)
+<span class="tok-kw">end</span>
+
+<span class="tok-com">-- while loop</span>
+<span class="tok-kw">local</span> count = <span class="tok-num">0</span>
+<span class="tok-kw">while</span> count &lt; <span class="tok-num">3</span> <span class="tok-kw">do</span>
+  count = count + <span class="tok-num">1</span>
+<span class="tok-kw">end</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lua: Functions -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Functions</h2>
+          <div class="snippet-card">
+            <h3>Function Syntax <span class="tag">function</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Lua output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> print(greet("Jay"))
+Hello, Jay
+<span class="out-prompt">&gt;</span> hp, mp, class
+100  50  Warrior
+<span class="out-prompt">&gt;</span> print(sum(1, 2, 3, 4))
+10</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">-- basic function</span>
+<span class="tok-kw">local function</span> <span class="tok-fn">greet</span>(name)
+  <span class="tok-kw">return</span> <span class="tok-str">"Hello, "</span> .. name
+<span class="tok-kw">end</span>
+<span class="tok-fn">print</span>(<span class="tok-fn">greet</span>(<span class="tok-str">"Jay"</span>))
+
+<span class="tok-com">-- multiple return values</span>
+<span class="tok-kw">local function</span> <span class="tok-fn">get_stats</span>()
+  <span class="tok-kw">return</span> <span class="tok-num">100</span>, <span class="tok-num">50</span>, <span class="tok-str">"Warrior"</span>
+<span class="tok-kw">end</span>
+<span class="tok-kw">local</span> hp, mp, class = <span class="tok-fn">get_stats</span>()
+
+<span class="tok-com">-- variadic function</span>
+<span class="tok-kw">local function</span> <span class="tok-fn">sum</span>(...)
+  <span class="tok-kw">local</span> total = <span class="tok-num">0</span>
+  <span class="tok-kw">for</span> _, v <span class="tok-kw">in</span> <span class="tok-fn">ipairs</span>({...}) <span class="tok-kw">do</span>
+    total = total + v
+  <span class="tok-kw">end</span>
+  <span class="tok-kw">return</span> total
+<span class="tok-kw">end</span>
+<span class="tok-fn">print</span>(<span class="tok-fn">sum</span>(<span class="tok-num">1</span>, <span class="tok-num">2</span>, <span class="tok-num">3</span>, <span class="tok-num">4</span>))  <span class="tok-com">-- 10</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lua: OOP Pattern -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">OOP Pattern (Metatables)</h2>
+          <div class="snippet-card">
+            <h3>Class-like Pattern <span class="tag">metatable</span></h3>
+            <p class="desc">Lua has no classes — use metatables for OOP.</p>
+            <div class="snippet-output">
+              <div class="out-label">Lua output</div>
+              <div class="out-terminal"><span class="out-prompt">&gt;</span> hero = Player.new("Jay", 100)
+<span class="out-prompt">&gt;</span> hero:takeDamage(20)
+<span class="out-prompt">&gt;</span> print(hero:info())
+Jay (HP: 80)</div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">local</span> Player = {}
+Player.__index = Player
+
+<span class="tok-kw">function</span> Player.<span class="tok-fn">new</span>(name, hp)
+  <span class="tok-kw">local</span> self = <span class="tok-fn">setmetatable</span>({}, Player)
+  self.name = name
+  self.hp = hp
+  <span class="tok-kw">return</span> self
+<span class="tok-kw">end</span>
+
+<span class="tok-kw">function</span> Player:<span class="tok-fn">takeDamage</span>(amount)
+  self.hp = math.<span class="tok-fn">max</span>(<span class="tok-num">0</span>, self.hp - amount)
+<span class="tok-kw">end</span>
+
+<span class="tok-kw">function</span> Player:<span class="tok-fn">info</span>()
+  <span class="tok-kw">return</span> self.name .. <span class="tok-str">" (HP: "</span> .. self.hp .. <span class="tok-str">")"</span>
+<span class="tok-kw">end</span>
+
+<span class="tok-com">-- usage</span>
+<span class="tok-kw">local</span> hero = Player.<span class="tok-fn">new</span>(<span class="tok-str">"Jay"</span>, <span class="tok-num">100</span>)
+hero:<span class="tok-fn">takeDamage</span>(<span class="tok-num">20</span>)
+<span class="tok-fn">print</span>(hero:<span class="tok-fn">info</span>())  <span class="tok-com">-- Jay (HP: 80)</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lua: Game Loop Pattern -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Game Scripting Pattern</h2>
+          <div class="snippet-card">
+            <h3>LÖVE2D-style Callbacks <span class="tag">game loop</span></h3>
+            <p class="desc">Common in Lua game frameworks — load, update, draw.</p>
+            <div class="snippet-output">
+              <div class="out-label">LÖVE2D screen (simulated)</div>
+              <div class="out-content">
+                <div class="phone-mock" style="background:var(--navy-950)">
+                  <div class="phone-screen" style="background:transparent;font-family:var(--font-mono);font-size:var(--text-xs)">Player X: 240</div>
+                  <div class="phone-screen" style="background:transparent;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--accent)">← →  keys move player</div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">-- LÖVE2D-style game callbacks</span>
+
+<span class="tok-kw">local</span> player = { x = <span class="tok-num">100</span>, y = <span class="tok-num">100</span>, speed = <span class="tok-num">200</span> }
+
+<span class="tok-kw">function</span> <span class="tok-fn">love.load</span>()
+  <span class="tok-com">-- initialize assets, set up state</span>
+<span class="tok-kw">end</span>
+
+<span class="tok-kw">function</span> <span class="tok-fn">love.update</span>(dt)
+  <span class="tok-com">-- dt = delta time (seconds since last frame)</span>
+  <span class="tok-kw">if</span> love.keyboard.<span class="tok-fn">isDown</span>(<span class="tok-str">"right"</span>) <span class="tok-kw">then</span>
+    player.x = player.x + player.speed * dt
+  <span class="tok-kw">end</span>
+  <span class="tok-kw">if</span> love.keyboard.<span class="tok-fn">isDown</span>(<span class="tok-str">"left"</span>) <span class="tok-kw">then</span>
+    player.x = player.x - player.speed * dt
+  <span class="tok-kw">end</span>
+<span class="tok-kw">end</span>
+
+<span class="tok-kw">function</span> <span class="tok-fn">love.draw</span>()
+  love.graphics.<span class="tok-fn">print</span>(<span class="tok-str">"Player X: "</span> .. math.<span class="tok-fn">floor</span>(player.x), <span class="tok-num">10</span>, <span class="tok-num">10</span>)
+<span class="tok-kw">end</span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END LUA PANEL ===== -->
+
+      <!-- ============ ANIMATION PANEL ============ -->
+      <section class="lib-panel" id="panel-animation" aria-label="Animation reference">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
+          <div>
+            <h1>Animation &amp; Transitions</h1>
+            <p>CSS transitions, keyframe animations, and motion patterns</p>
+          </div>
+        </div>
+
+        <!-- Animation: Transition Template -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Transition Template</h2>
+          <div class="snippet-card">
+            <h3>Transition All Properties <span class="tag">transition: 1s all</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover the box</div>
+              <div class="out-content">
+                <div class="demo-trans-all">Hover me</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.element</span> {
+  transition: 1s all;
+  <span class="tok-com">/* add transform, margin, background, etc. */</span>
+}
+<span class="tok-kw">.element:hover</span> {
+  transform: scale(1.1);
+  background: var(--accent-deep);
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation: Transition Duration -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">transition-duration</h2>
+          <div class="snippet-card">
+            <h3>Different Durations <span class="tag">0.7s, 1s, 2s, 3s</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover each track</div>
+              <div class="out-content">
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-duration:0.7s">0.7s</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-duration:1s">1s</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-duration:2s">2s</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-duration:3s">3s</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.box</span> { transition-property: transform; }
+<span class="tok-kw">.fast</span>   { transition-duration: 0.7s; }
+<span class="tok-kw">.normal</span> { transition-duration: 1s; }
+<span class="tok-kw">.slow</span>   { transition-duration: 2s; }
+<span class="tok-kw">.slower</span> { transition-duration: 3s; }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation: Transition Timing -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">transition-timing-function</h2>
+          <div class="snippet-card">
+            <h3>Easing Functions <span class="tag">linear, ease, ease-in, ease-out, steps</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover each track</div>
+              <div class="out-content">
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-timing-function:linear">linear</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-timing-function:ease">ease</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-timing-function:ease-in">ease-in</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-timing-function:ease-out">ease-out</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-timing-function:steps(4)">steps(4)</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.linear</span>      { transition-timing-function: linear; }
+<span class="tok-kw">.ease</span>        { transition-timing-function: ease; }
+<span class="tok-kw">.ease-in</span>     { transition-timing-function: ease-in; }
+<span class="tok-kw">.ease-out</span>    { transition-timing-function: ease-out; }
+<span class="tok-kw">.ease-in-out</span> { transition-timing-function: ease-in-out; }
+<span class="tok-kw">.steps</span>       { transition-timing-function: steps(4); }
+<span class="tok-com">/* custom cubic-bezier */</span>
+<span class="tok-kw">.custom</span>      { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation: Transition Delay & Property -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">transition-delay &amp; transition-property</h2>
+          <div class="snippet-card">
+            <h3>transition-delay <span class="tag">0s, 0.3s, 0.7s, 1.5s</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover each track (boxes move after delay)</div>
+              <div class="out-content">
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-delay:0s">0s</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-delay:0.3s">0.3s</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-delay:0.7s">0.7s</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-delay:1.5s">1.5s</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.no-delay</span>   { transition-delay: 0s; }
+<span class="tok-kw">.short</span>      { transition-delay: 0.3s; }
+<span class="tok-kw">.medium</span>     { transition-delay: 0.7s; }
+<span class="tok-kw">.long</span>       { transition-delay: 1.5s; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>transition-property <span class="tag">all, color, background, transform</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover each box</div>
+              <div class="out-content">
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-property:all">all</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-property:color">color only</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-property:background">bg only</div></div>
+                <div class="demo-trans-track"><div class="demo-box-t" style="transition-property:transform">transform only</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.all</span>       { transition-property: all; }
+<span class="tok-kw">.color</span>     { transition-property: color; }
+<span class="tok-kw">.bg</span>        { transition-property: background; }
+<span class="tok-kw">.transform</span> { transition-property: transform; }
+<span class="tok-com">/* multiple properties */</span>
+<span class="tok-kw">.multi</span>     { transition-property: color, background, transform; }</pre>
+            </div>
+          </div>
+        </div>
+      <!-- ===== END ANIMATION PANEL PART 1 ===== -->
+
+        <!-- Animation: Transition Examples -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Transition Examples</h2>
+          <div class="snippet-card">
+            <h3>3D Card Flip <span class="tag">transform: rotateY</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover the card</div>
+              <div class="out-content">
+                <div class="demo-card-flip">
+                  <div class="demo-card-inner">
+                    <div class="demo-card-front">A</div>
+                    <div class="demo-card-back">B</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-com">/* HTML */</span>
+<span class="tok-kw">&lt;div</span> <span class="tok-str">class="card-flip"</span><span class="tok-kw">&gt;</span>
+  <span class="tok-kw">&lt;div</span> <span class="tok-str">class="card-inner"</span><span class="tok-kw">&gt;</span>
+    <span class="tok-kw">&lt;div</span> <span class="tok-str">class="card-front"</span><span class="tok-kw">&gt;</span>A<span class="tok-kw">&lt;/div&gt;</span>
+    <span class="tok-kw">&lt;div</span> <span class="tok-str">class="card-back"</span><span class="tok-kw">&gt;</span>B<span class="tok-kw">&lt;/div&gt;</span>
+  <span class="tok-kw">&lt;/div&gt;</span>
+<span class="tok-kw">&lt;/div&gt;</span>
+
+<span class="tok-com">/* CSS */</span>
+<span class="tok-kw">.card-flip</span> { perspective: 300px; }
+<span class="tok-kw">.card-inner</span> {
+  transition: 0.7s;
+  transform-style: preserve-3d;
+  transform-origin: right;
+  position: relative;
+}
+<span class="tok-kw">.card-flip:hover .card-inner</span> {
+  transform: rotateY(180deg) translateX(100%);
+}
+<span class="tok-kw">.card-front, .card-back</span> {
+  backface-visibility: hidden;
+  position: absolute;
+}
+<span class="tok-kw">.card-back</span> { transform: rotateY(180deg) translateZ(1px); }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Tooltip on Hover <span class="tag">opacity transition</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover the box</div>
+              <div class="out-content">
+                <div class="demo-tooltip-wrap">
+                  <div class="demo-tooltip-box">Hover me</div>
+                  <span class="demo-tooltip-text">This is a tooltip!</span>
+                </div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.tooltip-text</span> {
+  opacity: 0;
+  transition: 0.3s;
+  position: absolute;
+  background: var(--navy-950);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8em;
+}
+<span class="tok-kw">.tooltip-wrap:hover .tooltip-text</span> {
+  opacity: 1;
+}</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Translate on Hover <span class="tag">transform: translateX</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — hover the track</div>
+              <div class="out-content">
+                <div class="demo-trans-track"><div class="demo-box-t">slide right</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.container .box</span> {
+  transition: 1s all;
+}
+<span class="tok-kw">.container:hover .box</span> {
+  transform: translateX(200px);
+}</pre>
+            </div>
+          </div>
+        </div>
+      <!-- ===== END ANIMATION PANEL PART 2 ===== -->
+
+        <!-- Animation: CSS Animation Properties -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">CSS Animation Properties</h2>
+          <div class="snippet-card">
+            <h3>animation-duration <span class="tag">0.7s, 1s, 2s, 3s</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — boxes loop continuously</div>
+              <div class="out-content">
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-duration:0.7s">0.7s</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-duration:1s">1s</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-duration:2s">2s</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-duration:3s">3s</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.box</span> {
+  animation-name: slide;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+<span class="tok-kw">.fast</span>   { animation-duration: 0.7s; }
+<span class="tok-kw">.normal</span> { animation-duration: 1s; }
+<span class="tok-kw">.slow</span>   { animation-duration: 2s; }
+<span class="tok-kw">.slower</span> { animation-duration: 3s; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>animation-direction <span class="tag">normal, alternate, reverse</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-direction:normal">normal</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-direction:alternate">alternate</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-direction:reverse">reverse</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-direction:alternate-reverse">alt-reverse</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.normal</span>     { animation-direction: normal; }
+<span class="tok-kw">.alternate</span>  { animation-direction: alternate; }  <span class="tok-com">/* fwd then back */</span>
+<span class="tok-kw">.reverse</span>    { animation-direction: reverse; }
+<span class="tok-kw">.alt-rev</span>    { animation-direction: alternate-reverse; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>animation-iteration-count <span class="tag">1, 2, infinite</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-iteration-count:1">1x</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-iteration-count:2">2x</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-iteration-count:infinite">infinite</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.once</span>      { animation-iteration-count: 1; }
+<span class="tok-kw">.twice</span>     { animation-iteration-count: 2; }
+<span class="tok-kw">.loop</span>      { animation-iteration-count: infinite; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>animation-timing-function <span class="tag">linear, ease, steps</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content">
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-timing-function:linear">linear</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-timing-function:ease">ease</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-timing-function:ease-in">ease-in</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a" style="animation-timing-function:steps(4)">steps(4)</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.linear</span>   { animation-timing-function: linear; }
+<span class="tok-kw">.ease</span>     { animation-timing-function: ease; }
+<span class="tok-kw">.ease-in</span>  { animation-timing-function: ease-in; }
+<span class="tok-kw">.ease-out</span> { animation-timing-function: ease-out; }
+<span class="tok-kw">.steps</span>    { animation-timing-function: steps(4); }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>animation-fill-mode <span class="tag">none, forwards, backwards, both</span></h3>
+            <p class="desc">Controls what styles apply before/after animation runs.</p>
+            <div class="snippet-output">
+              <div class="out-label">Output — boxes animate once then hold</div>
+              <div class="out-content">
+                <div class="demo-anim-track"><div class="demo-box-a demo-fill" style="animation-fill-mode:none;animation-iteration-count:1">none</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a demo-fill" style="animation-fill-mode:forwards;animation-iteration-count:1">forwards</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a demo-fill" style="animation-fill-mode:backwards;animation-iteration-count:1">backwards</div></div>
+                <div class="demo-anim-track"><div class="demo-box-a demo-fill" style="animation-fill-mode:both;animation-iteration-count:1">both</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">.none</span>      { animation-fill-mode: none; }
+<span class="tok-kw">.forwards</span>  { animation-fill-mode: forwards; }  <span class="tok-com">/* hold end state */</span>
+<span class="tok-kw">.backwards</span> { animation-fill-mode: backwards; } <span class="tok-com">/* apply start before delay */</span>
+<span class="tok-kw">.both</span>      { animation-fill-mode: both; }</pre>
+            </div>
+          </div>
+        </div>
+      <!-- ===== END ANIMATION PANEL PART 3 ===== -->
+
+        <!-- Animation: Keyframes -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Keyframe Animations</h2>
+          <div class="snippet-card">
+            <h3>Slide Right <span class="tag">@keyframes</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — box slides right and back</div>
+              <div class="out-content">
+                <div class="demo-anim-track"><div class="demo-box-a demo-kf-slide">slide</div></div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> slideright {
+  <span class="tok-kw">from</span> { margin-left: 0%; }
+  <span class="tok-kw">to</span>   { margin-left: 80%; }
+}
+
+<span class="tok-kw">.box</span> {
+  animation-name: slideright;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Color Change <span class="tag">@keyframes</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — box cycles colors</div>
+              <div class="out-content">
+                <div class="demo-kf-color">color</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> showbackground {
+  <span class="tok-kw">from</span> { background-color: var(--accent); }
+  <span class="tok-kw">to</span>   { background-color: var(--accent-deep); }
+}
+
+<span class="tok-kw">.box</span> {
+  animation: showbackground 2s infinite alternate;
+}</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Grow &amp; Shrink <span class="tag">@keyframes</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — box grows and shrinks</div>
+              <div class="out-content">
+                <div class="demo-kf-grow">grow</div>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> growsize {
+  <span class="tok-kw">from</span> { height: 1em; width: 1em; }
+  <span class="tok-kw">to</span>   { height: 4em; width: 4em; }
+}
+
+<span class="tok-kw">.box</span> {
+  animation: growsize 2s infinite alternate;
+}</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Blinking Cursor <span class="tag">@keyframes</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output — cursor blinks</div>
+              <div class="out-content">
+                <span class="demo-kf-cursor">|</span>
+              </div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> cursor {
+  <span class="tok-num">50%</span> { border-color: transparent; }
+}
+
+<span class="tok-kw">.cursor</span> {
+  border-right: 2px solid var(--accent);
+  animation: cursor 1s infinite step-end;
+}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animation: Native Animation Classes -->
+        <div class="lib-sub">
+          <h2 class="lib-sub-head">Native Animation Classes</h2>
+          <div class="snippet-card">
+            <h3>Bounce <span class="tag">@keyframes bounce</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content"><h3 class="demo-anim-bounce">bounce</h3></div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> bounce {
+  <span class="tok-num">0%, 20%, 50%, 80%, 100%</span> { transform: translateY(0); }
+  <span class="tok-num">40%</span>  { transform: translateY(-1em); }
+  <span class="tok-num">60%</span>  { transform: translateY(-0.5em); }
+}
+<span class="tok-kw">.bounce</span> { animation: bounce 2s infinite; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Pulse <span class="tag">@keyframes pulse</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content"><h3 class="demo-anim-pulse">pulse</h3></div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> pulse {
+  <span class="tok-num">0%</span>   { transform: scale(1); }
+  <span class="tok-num">50%</span>  { transform: scale(1.1); }
+  <span class="tok-num">100%</span> { transform: scale(1); }
+}
+<span class="tok-kw">.pulse</span> { animation: pulse 1.5s infinite; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Shake <span class="tag">@keyframes shake</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content"><h3 class="demo-anim-shake">shake</h3></div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> shake {
+  <span class="tok-num">0%, 100%</span> { transform: translateX(0); }
+  <span class="tok-num">20%, 60%</span> { transform: translateX(-10px); }
+  <span class="tok-num">40%, 80%</span> { transform: translateX(10px); }
+}
+<span class="tok-kw">.shake</span> { animation: shake 1s infinite; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Fade In <span class="tag">@keyframes fadeIn</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content"><h3 class="demo-anim-fade">fadeIn</h3></div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> fadeIn {
+  <span class="tok-kw">from</span> { opacity: 0; }
+  <span class="tok-kw">to</span>   { opacity: 1; }
+}
+<span class="tok-kw">.fadeIn</span> { animation: fadeIn 2s infinite alternate; }</pre>
+            </div>
+          </div>
+          <div class="snippet-card">
+            <h3>Rotate In <span class="tag">@keyframes rotateIn</span></h3>
+            <div class="snippet-output">
+              <div class="out-label">Output</div>
+              <div class="out-content"><h3 class="demo-anim-rotate">rotateIn</h3></div>
+            </div>
+            <div class="codeblock">
+              <button class="copy-btn" type="button">Copy</button>
+              <pre><span class="tok-kw">@keyframes</span> rotateIn {
+  <span class="tok-kw">from</span> { transform: rotate(-200deg); opacity: 0; }
+  <span class="tok-kw">to</span>   { transform: rotate(0); opacity: 1; }
+}
+<span class="tok-kw">.rotateIn</span> { animation: rotateIn 2s infinite alternate; }</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END ANIMATION PANEL ===== -->
+
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-sig"><b>JH</b> &copy; 2025 Jaybond Holliete — CodeLibrary</div>
+      <button class="to-top clay-panel" id="toTop" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-up"/></svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- ============ TOAST STACK ============ -->
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="js/sound.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/codelibrary.js"></script>
+</body>
+</html>
