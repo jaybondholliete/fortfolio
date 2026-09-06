@@ -54,7 +54,7 @@
       <li><a class="nav-link" href="index.html#achievements">Achievements</a></li>
       <li><a class="nav-link" href="index.html#projects">Projects</a></li>
       <li><a class="nav-link" href="index.html#contact">Contact</a></li>
-      <li><a class="nav-link is-active" href="codelibrary.html">CodeLibrary</a></li>
+      <li><a class="nav-link is-active" href="#codelibrary">CodeLibrary</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
       <svg class="bars" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-bars"/></svg>
@@ -202,22 +202,27 @@
           <div class="snippet-card">
             <h3>Anchor Link <span class="tag">a</span></h3>
             <div class="snippet-output">
-              <div class="out-label">Output</div>
+              <div class="out-label">Output — all links use # so they won't navigate away</div>
               <div class="out-content">
-                <a href="https://example.com">Visit Example</a><br>
-                <a href="https://example.com" target="_blank" rel="noopener noreferrer">Open new tab</a><br>
-                <a href="#panel-html">Jump to section</a>
+                <a href="#">Visit Example</a><br>
+                <a href="#" target="_blank" rel="noopener noreferrer">Open new tab</a><br>
+                <a href="#">Jump to section</a><br>
+                <a href="#">Page link (index.html)</a>
               </div>
             </div>
             <div class="codeblock">
               <button class="copy-btn" type="button">Copy</button>
-              <pre><span class="tok-kw">&lt;a</span> <span class="tok-str">href="https://example.com"</span><span class="tok-kw">&gt;</span>Visit Example<span class="tok-kw">&lt;/a&gt;</span>
+              <pre><span class="tok-com">&lt;!-- same-page link (uses # so it won't navigate) --&gt;</span>
+<span class="tok-kw">&lt;a</span> <span class="tok-str">href="#"</span><span class="tok-kw">&gt;</span>Visit Example<span class="tok-kw">&lt;/a&gt;</span>
 
 <span class="tok-com">&lt;!-- open in new tab --&gt;</span>
-<span class="tok-kw">&lt;a</span> <span class="tok-str">href="https://example.com"</span> <span class="tok-str">target="_blank"</span> <span class="tok-str">rel="noopener noreferrer"</span><span class="tok-kw">&gt;</span>Open new tab<span class="tok-kw">&lt;/a&gt;</span>
+<span class="tok-kw">&lt;a</span> <span class="tok-str">href="#"</span> <span class="tok-str">target="_blank"</span> <span class="tok-str">rel="noopener noreferrer"</span><span class="tok-kw">&gt;</span>Open new tab<span class="tok-kw">&lt;/a&gt;</span>
 
 <span class="tok-com">&lt;!-- link to section on same page --&gt;</span>
-<span class="tok-kw">&lt;a</span> <span class="tok-str">href="#section-id"</span><span class="tok-kw">&gt;</span>Jump to section<span class="tok-kw">&lt;/a&gt;</span></pre>
+<span class="tok-kw">&lt;a</span> <span class="tok-str">href="#section-id"</span><span class="tok-kw">&gt;</span>Jump to section<span class="tok-kw">&lt;/a&gt;</span>
+
+<span class="tok-com">&lt;!-- page link (use # in demo so it won't navigate away) --&gt;</span>
+<span class="tok-kw">&lt;a</span> <span class="tok-str">href="#"</span><span class="tok-kw">&gt;</span>Page link (index.html)<span class="tok-kw">&lt;/a&gt;</span></pre>
             </div>
           </div>
           <div class="snippet-card">
@@ -381,8 +386,8 @@
                 <header style="background:var(--navy-800);color:var(--white);padding:8px 12px;border-radius:8px">
                   <nav>
                     <ul>
-                      <li><a href="#panel-html">Home</a></li>
-                      <li><a href="#panel-css">About</a></li>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About</a></li>
                     </ul>
                   </nav>
                 </header>
@@ -1121,8 +1126,8 @@ Press <span class="tok-kw">&lt;kbd&gt;</span>Ctrl<span class="tok-kw">&lt;/kbd&g
             <div class="snippet-output">
               <div class="out-label">Output — hover and click these links</div>
               <div class="out-content">
-                <a href="#panel-css" class="demo-link">Hover me — I turn orange</a>
-                <a href="#panel-css" class="demo-link" style="margin-left:12px">Click me — I flash red briefly</a>
+                <a href="#" class="demo-link">Hover me — I turn orange</a>
+                <a href="#" class="demo-link" style="margin-left:12px">Click me — I flash red briefly</a>
               </div>
             </div>
             <div class="codeblock">
