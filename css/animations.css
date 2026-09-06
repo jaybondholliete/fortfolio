@@ -1,0 +1,88 @@
+/* animations.css — boot sequence, blob drift, achievement pop, reveal */
+@keyframes bootFill { from { width: 0; } to { width: 100%; } }
+@keyframes bootFade { to { opacity: 0; visibility: hidden; } }
+@keyframes heroSettle {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blobDriftA {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(14px,-18px) rotate(6deg); }
+}
+@keyframes blobDriftB {
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(-18px,14px) rotate(-6deg); }
+}
+@keyframes badgePop {
+  0% { opacity: 0; transform: scale(.4); }
+  60% { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes glowPulse {
+  0%,100% { box-shadow: var(--shadow-pixel-sm), var(--shadow-clay), 0 0 0 rgba(255,90,46,0); }
+  50% { box-shadow: var(--shadow-pixel-sm), var(--shadow-clay), 0 0 28px rgba(255,90,46,0.55); }
+}
+
+/* Boot */
+.boot-bar-fill { animation: bootFill 1s cubic-bezier(.2,.8,.2,1) forwards; }
+.boot.is-done { animation: bootFade .4s ease forwards; }
+
+/* Hero entrance (orchestrated, once — gated on body.booted so it plays AFTER boot) */
+.hero-name .ln,
+.hero-class,
+.hero-tag,
+.hero-cta-row,
+.hero-motif {
+  opacity: 0;
+}
+body.booted .hero-class { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .15s forwards; }
+body.booted .hero-name .ln:nth-child(1) { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .25s forwards; }
+body.booted .hero-name .ln:nth-child(2) { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .38s forwards; }
+body.booted .hero-tag { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .5s forwards; }
+body.booted .hero-cta-row { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .62s forwards; }
+body.booted .hero-motif.m1 { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .7s forwards; }
+body.booted .hero-motif.m2 { animation: heroSettle .6s cubic-bezier(.2,.8,.2,1) .82s forwards; }
+
+/* Blob drift */
+.blob.drift-a { animation: blobDriftA 14s ease-in-out infinite; }
+.blob.drift-b { animation: blobDriftB 16s ease-in-out infinite; }
+
+/* Achievement unlock */
+.badge { opacity: 0; }
+.badge.is-unlocked { animation: badgePop .5s cubic-bezier(.2,.8,.2,1) forwards; }
+.badge.is-unlocked .badge-shield { animation: glowPulse 2.4s ease-in-out infinite; animation-delay: .5s; }
+
+/* Reveal-once for skill bars handled via .filled in JS */
+
+/* Toast in */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast { animation: toastIn .25s ease forwards; }
+@keyframes toastOut { to { opacity: 0; transform: translateY(8px); } }
+.toast.is-leaving { animation: toastOut .25s ease forwards; }
+
+/* Confetti */
+@keyframes confettiFall {
+  to { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+.confetti-piece { animation: confettiFall 1.6s ease-in forwards; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .boot-bar-fill { width: 100%; animation: none; }
+  .boot { display: none; }
+  .hero-name .ln, .hero-class, .hero-tag, .hero-cta-row, .hero-motif { opacity: 1; animation: none; }
+  body.booted .hero-name .ln, body.booted .hero-class, body.booted .hero-tag, body.booted .hero-cta-row, body.booted .hero-motif { animation: none; }
+  .blob.drift-a, .blob.drift-b { animation: none; }
+  .badge { opacity: 1; animation: none; }
+  .badge.is-unlocked .badge-shield { animation: none; }
+  .cursor-dot, .cursor-trail { display: none; }
+  body.cursor-on { cursor: auto; }
+}
