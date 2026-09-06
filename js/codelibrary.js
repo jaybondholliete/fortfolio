@@ -30,7 +30,7 @@
 
   // open from URL hash
   const hash = (location.hash || "").replace("#", "");
-  if (hash && ["html","css","js","python","flutter","csharp","lua","animation"].indexOf(hash) !== -1) {
+  if (hash && ["html","css","js","python","flutter","csharp","lua","animation","playground"].indexOf(hash) !== -1) {
     showLang(hash);
   }
 
@@ -61,20 +61,6 @@
       setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("is-copied"); }, 2000);
     });
   });
-
-  /* ---------- Mobile nav toggle (reuse from main.js but main.js may not bind here) ---------- */
-  const toggle = $("#navToggle");
-  const links = $("#navLinks");
-  if (toggle && links) {
-    toggle.addEventListener("click", () => {
-      const open = links.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(open));
-    });
-    $$("a", links).forEach(a => a.addEventListener("click", () => {
-      links.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    }));
-  }
 
   /* ---------- Back to top ---------- */
   const toTop = $("#toTop");

@@ -100,6 +100,10 @@
         <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
         Animation
       </button>
+      <button class="lib-lang-btn" data-lang="playground" type="button">
+        <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
+        Playground
+      </button>
     </aside>
 
     <!-- ---------- Content ---------- -->
@@ -3214,6 +3218,66 @@ hero:<span class="tok-fn">takeDamage</span>(<span class="tok-num">20</span>)
       </section>
       <!-- ===== END ANIMATION PANEL ===== -->
 
+      <!-- ============ PLAYGROUND PANEL ============ -->
+      <section class="lib-panel" id="panel-playground" aria-label="Code playground">
+        <div class="lib-panel-head">
+          <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-controller"/></svg>
+          <div>
+            <h1>Playground</h1>
+            <p>Write HTML, CSS, and JavaScript — see the result instantly</p>
+          </div>
+        </div>
+
+        <div class="pg-wrap">
+          <!-- Editor tabs -->
+          <div class="pg-editor-side">
+            <div class="pg-tabs" role="tablist" aria-label="Editor tabs">
+              <button class="pg-tab is-active" data-pg-tab="html" type="button" role="tab" aria-selected="true">HTML</button>
+              <button class="pg-tab" data-pg-tab="css" type="button" role="tab" aria-selected="false">CSS</button>
+              <button class="pg-tab" data-pg-tab="js" type="button" role="tab" aria-selected="false">JS</button>
+            </div>
+
+            <!-- HTML editor -->
+            <div class="pg-editor-pane is-active" data-pg-pane="html">
+              <textarea class="pg-code" id="pgHtml" spellcheck="false" aria-label="HTML editor" placeholder="<!-- Write HTML here -->"></textarea>
+            </div>
+            <!-- CSS editor -->
+            <div class="pg-editor-pane" data-pg-pane="css" hidden>
+              <textarea class="pg-code" id="pgCss" spellcheck="false" aria-label="CSS editor" placeholder="/* Write CSS here */"></textarea>
+            </div>
+            <!-- JS editor -->
+            <div class="pg-editor-pane" data-pg-pane="js" hidden>
+              <textarea class="pg-code" id="pgJs" spellcheck="false" aria-label="JavaScript editor" placeholder="// Write JavaScript here"></textarea>
+            </div>
+
+            <!-- Controls -->
+            <div class="pg-controls">
+              <button class="pg-btn pg-run" id="pgRun" type="button">Run</button>
+              <button class="pg-btn pg-reset" id="pgReset" type="button">Reset</button>
+              <select class="pg-examples" id="pgExamples" aria-label="Load example">
+                <option value="">Load example...</option>
+                <option value="hello">Hello World</option>
+                <option value="card">Card Hover</option>
+                <option value="counter">Click Counter</option>
+                <option value="flexbox">Flexbox Layout</option>
+                <option value="animation">Bounce Animation</option>
+                <option value="form">Simple Form</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Output iframe -->
+          <div class="pg-output-side">
+            <div class="pg-output-head">
+              <span class="pg-out-label">Output</span>
+              <span class="pg-out-dot"></span>
+            </div>
+            <iframe class="pg-iframe" id="pgOutput" title="Code output" sandbox="allow-scripts"></iframe>
+          </div>
+        </div>
+      </section>
+      <!-- ===== END PLAYGROUND PANEL ===== -->
+
     </div>
   </div>
 
@@ -3234,5 +3298,6 @@ hero:<span class="tok-fn">takeDamage</span>(<span class="tok-num">20</span>)
   <script src="js/sound.js"></script>
   <script src="js/main.js"></script>
   <script src="js/codelibrary.js"></script>
+  <script src="js/playground.js"></script>
 </body>
 </html>

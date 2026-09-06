@@ -31,7 +31,7 @@
     visibility: hidden;
     transition: opacity .2s ease, transform .2s ease, visibility .2s;
   }
-  .nav-links.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-links.is-open { opacity: 1; visibility: visible; transform: translateY(0); z-index: 110; }
   .nav-link {
     width: 100%;
     text-align: left;
