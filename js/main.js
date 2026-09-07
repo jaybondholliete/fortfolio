@@ -174,10 +174,14 @@
   const soundBtn = $("#soundToggle");
   if (soundBtn && window.SFX) {
     soundBtn.addEventListener("click", () => {
-      SFX.enabled = !SFX.enabled;
-      soundBtn.setAttribute("aria-pressed", String(SFX.enabled));
-      if (SFX.enabled) SFX.click();
-      window.toast(SFX.enabled ? "Sound on" : "Sound muted", { ttl: 1400 });
+      const on = soundBtn.getAttribute("aria-pressed") !== "true";
+      soundBtn.setAttribute("aria-pressed", String(on));
+      if (window.SFX.setEnabled) window.SFX.setEnabled(on);
+      if (on) {
+        if (window.SFX.unlock) window.SFX.unlock();
+        else window.SFX.click();
+      }
+      window.toast(on ? "Sound & music on" : "Sound & music muted", { ttl: 1400 });
     });
   }
 
