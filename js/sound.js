@@ -7,6 +7,7 @@
   music.loop = true;
   music.preload = "auto";
   music.volume = 0.4;
+  music.muted = true; /* start muted so browser allows autoplay */
 
   /* Backup loop trigger in case browser ignores the loop attribute */
   music.addEventListener("ended", function () {
@@ -48,39 +49,52 @@
       try {
         if (this.enabled) {
           music.muted = false;
-          music.play().catch(() => { /* autoplay blocked until user gesture */ });
+          music.play().catch(() => {});
         } else {
           music.pause();
-          music.muted = true;
         }
       } catch (e) { /* audio unavailable */ }
     }
   };
 
-  /* Attempt autoplay on page load. Browsers may block this; if so,
-     the first user interaction (click, touch, key) will trigger playback. */
+  /* Attempt muted autoplay on page load. Browsers allow muted autoplay.
+     On first user interaction, we unmute so the music becomes audible. */
   function tryPlay() {
-    if (SFX.enabled) music.play().catch(() => { /* browser denied autoplay */ });
+    if (SFX.enabled) {
+      music.muted = true;
+      music.play().catch(() => { /* browser denied even muted autoplay */ });
+    }
   }
   tryPlay();
 
-  /* Fallback: unlock audio on first user gesture if autoplay was denied */
-  function unlockOnInteraction(e) {
+  /* Unmute on first user interaction — this satisfies browser autoplay policy */
+  function unmuteOnInteraction(e) {
     if (!SFX.enabled) return;
-    if (e && e.target && e.target.closest("#soundToggle")) return; /* don't fight the toggle button */
-    if (music.paused) {
-      music.play().catch(() => {});
+    if (e && e.target && e.target.closest && e.target.closest("#soundToggle")) {
+      /* Let the toggle handler in main.js control mute state */
+      window.removeEventListener("click", unmuteOnInteraction, true);
+      window.removeEventListener("touchstart", unmuteOnInteraction, true);
+      window.removeEventListener("keydown", unmuteOnInteraction, true);
+      window.removeEventListener("scroll", unmuteOnInteraction, true);
+      window.removeEventListener("mousemove", unmuteOnInteraction, true);
+      return;
     }
+    music.muted = false;
+    if (music.paused) music.play().catch(() => {});
     if (SFX.ctx && SFX.ctx.state === "suspended") {
       try { SFX.ctx.resume(); } catch (_) {}
     }
-    window.removeEventListener("click", unlockOnInteraction, true);
-    window.removeEventListener("touchstart", unlockOnInteraction, true);
-    window.removeEventListener("keydown", unlockOnInteraction, true);
+    window.removeEventListener("click", unmuteOnInteraction, true);
+    window.removeEventListener("touchstart", unmuteOnInteraction, true);
+    window.removeEventListener("keydown", unmuteOnInteraction, true);
+    window.removeEventListener("scroll", unmuteOnInteraction, true);
+    window.removeEventListener("mousemove", unmuteOnInteraction, true);
   }
-  window.addEventListener("click", unlockOnInteraction, true);
-  window.addEventListener("touchstart", unlockOnInteraction, true);
-  window.addEventListener("keydown", unlockOnInteraction, true);
+  window.addEventListener("click", unmuteOnInteraction, true);
+  window.addEventListener("touchstart", unmuteOnInteraction, true);
+  window.addEventListener("keydown", unmuteOnInteraction, true);
+  window.addEventListener("scroll", unmuteOnInteraction, true);
+  window.addEventListener("mousemove", unmuteOnInteraction, true);
 
   /* Update sound toggle button to ON by default */
   const soundBtn = document.getElementById("soundToggle");
