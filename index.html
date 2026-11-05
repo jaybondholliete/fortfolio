@@ -60,6 +60,9 @@
       <symbol id="i-sound-on" viewBox="0 0 16 16" shape-rendering="crispEdges">
         <path fill="currentColor" d="M2,6 H4 V10 H2 Z M4,5 H6 V11 H4 Z M6,4 H8 V12 H6 Z M9,6 L10,5 L11,6 L10,7 Z M11,8 L12,7 L13,8 L12,9 Z"/>
       </symbol>
+      <symbol id="i-download" viewBox="0 0 16 16" shape-rendering="crispEdges">
+        <path fill="currentColor" d="M7,2 H9 V7 H7 Z M5,7 H11 L8,11 Z M3,12 H13 V14 H3 Z M3,14 H13 V16 H3 Z"/>
+      </symbol>
     </defs>
   </svg>
 
@@ -77,6 +80,7 @@
       <span class="name"><b>J</b>H</span>
     </a>
     <ul class="nav-links" id="navLinks">
+      <li><a class="nav-link" href="#games">Games</a></li>
       <li><a class="nav-link" href="#about">About</a></li>
       <li><a class="nav-link" href="#skills">Skills</a></li>
       <li><a class="nav-link" href="#achievements">Achievements</a></li>
@@ -91,6 +95,32 @@
   </nav>
 
   <main>
+    <!-- ============ FEATURED GAME BANNER ============ -->
+    <section class="game-hero" id="games" aria-label="Featured game: RaftyTrip">
+      <div class="game-hero-shot">
+        <img src="assets/images/raftytrip.png" alt="RaftyTrip — a survivor defends his raft from a shark in the open sea" width="1373" height="768" fetchpriority="high">
+      </div>
+      <div class="container game-hero-body">
+        <div class="game-hero-info">
+          <span class="proj-tag">Survival Raft Game · v1.0.8 · Out Now</span>
+          <p class="game-desc">Drift, scavenge, and survive the open water — my first shipped game, free on Android and PC.</p>
+          <p class="game-note">Android: allow &quot;install unknown apps&quot; to sideload. PC: unzip and run.</p>
+        </div>
+        <div class="game-dl-row">
+          <a class="btn pixel-notch" data-sound
+             href="https://github.com/jaybondholliete/fortfolio/releases/download/RaftyTrip-v1.0.8/RaftyTrip_v1.0.8.apk">
+            <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-download"/></svg>
+            Android APK <span class="dl-size">854 MB</span>
+          </a>
+          <a class="btn ghost" data-sound
+             href="https://github.com/jaybondholliete/fortfolio/releases/download/RaftyTrip-v1.0.8/Rafty_trip.v1.0.8.zip">
+            <svg class="ico" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-download"/></svg>
+            PC ZIP <span class="dl-size">530 MB</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
       <div class="blob drift-a" aria-hidden="true" style="width:280px;height:280px;top:12%;right:-60px;"></div>
