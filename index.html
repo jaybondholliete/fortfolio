@@ -63,6 +63,18 @@
       <symbol id="i-download" viewBox="0 0 16 16" shape-rendering="crispEdges">
         <path fill="currentColor" d="M7,2 H9 V7 H7 Z M5,7 H11 L8,11 Z M3,12 H13 V14 H3 Z M3,14 H13 V16 H3 Z"/>
       </symbol>
+      <symbol id="i-arrow-l" viewBox="0 0 16 16" shape-rendering="crispEdges">
+        <path fill="currentColor" d="M11,3 H9 V5 H7 V7 H5 V9 H7 V11 H9 V13 H11 V11 H9 V9 H7 V7 H9 V5 H11 Z"/>
+      </symbol>
+      <symbol id="i-arrow-r" viewBox="0 0 16 16" shape-rendering="crispEdges">
+        <path fill="currentColor" d="M5,3 H7 V5 H9 V7 H11 V9 H9 V11 H7 V13 H5 V11 H7 V9 H9 V7 H7 V5 H5 Z"/>
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 16 16" shape-rendering="crispEdges">
+        <path fill="currentColor" d="M5,3 H7 V5 H9 V7 H11 V9 H9 V11 H7 V13 H5 Z"/>
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 16 16" shape-rendering="crispEdges">
+        <path fill="currentColor" d="M4,3 H7 V13 H4 Z M9,3 H12 V13 H9 Z"/>
+      </symbol>
     </defs>
   </svg>
 
@@ -96,14 +108,33 @@
 
   <main>
     <!-- ============ FEATURED GAME BANNER ============ -->
-    <section class="game-hero" id="games" aria-label="Featured game: RaftyTrip">
+    <section class="game-hero" id="games" aria-label="Featured game: RaftyTrip beta">
       <div class="game-hero-shot">
-        <img src="assets/images/raftytrip.png" alt="RaftyTrip — a survivor defends his raft from a shark in the open sea" width="1373" height="768" fetchpriority="high">
+        <img class="hero-slide" src="assets/images/raftytrip.png" alt="RaftyTrip — a survivor defends his raft from a shark in the open sea" width="1373" height="768" fetchpriority="high">
+        <video class="hero-slide hero-slide-video" src="assets/videos/raftytrip-trailer.mp4" poster="assets/images/raftytrip.png" muted playsinline preload="metadata" aria-label="RaftyTrip trailer"></video>
+        <button class="hero-arrow prev" id="heroPrev" type="button" aria-label="Previous slide">
+          <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-arrow-l"/></svg>
+        </button>
+        <button class="hero-arrow next" id="heroNext" type="button" aria-label="Next slide">
+          <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-arrow-r"/></svg>
+        </button>
+        <button class="sound-toggle hero-ctrl" id="heroPlayPause" type="button" aria-label="Play or pause trailer">
+          <svg class="ic-play" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-play"/></svg>
+          <svg class="ic-pause" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-pause"/></svg>
+        </button>
+        <button class="sound-toggle hero-sound" id="heroSound" type="button" aria-pressed="false" aria-label="Toggle trailer sound">
+          <svg class="off" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-sound-off"/></svg>
+          <svg class="on" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><use href="#i-sound-on"/></svg>
+        </button>
+        <div class="hero-dots" aria-hidden="true">
+          <span class="hero-dot is-active"></span>
+          <span class="hero-dot"></span>
+        </div>
       </div>
       <div class="container game-hero-body">
         <div class="game-hero-info">
-          <span class="proj-tag">Survival Raft Game · v1.0.8 · Out Now</span>
-          <p class="game-desc">Drift, scavenge, and survive the open water — my first shipped game, free on Android and PC.</p>
+          <span class="proj-tag">Rafty Trip · v1.0.8 · Beta</span>
+          <p class="game-desc">Drift, scavenge, and survive the open water — my first shipped game, now in beta on Android and PC.</p>
           <p class="game-note">Android: allow &quot;install unknown apps&quot; to sideload. PC: unzip and run.</p>
         </div>
         <div class="game-dl-row">

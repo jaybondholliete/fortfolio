@@ -165,13 +165,66 @@
 /* ---------- Featured game banner ---------- */
 .game-hero { padding: calc(var(--nav-h) + var(--space-3)) 0 var(--space-9); }
 .game-hero-shot { position: relative; }
-.game-hero-shot img {
+.game-hero-shot .hero-slide {
   width: 100%;
   height: min(78vh, 56.25vw);
   object-fit: cover;
   object-position: center 30%;
   display: block;
 }
+.game-hero-shot video.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.game-hero-shot video.hero-slide.is-active { opacity: 1; }
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-5);
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-2);
+  z-index: 1;
+}
+.hero-dot { width: 8px; height: 8px; background: rgba(255,255,255,0.35); cursor: pointer; }
+.hero-dot.is-active { background: var(--accent); }
+.game-hero-shot .hero-sound,
+.game-hero-shot .hero-ctrl {
+  position: absolute;
+  left: auto;
+  bottom: var(--space-5);
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.game-hero-shot .hero-sound { right: var(--space-5); }
+.game-hero-shot .hero-ctrl { right: calc(var(--space-5) + 56px); }
+.game-hero-shot .hero-sound.is-visible,
+.game-hero-shot .hero-ctrl.is-visible { opacity: 1; pointer-events: auto; }
+.hero-ctrl .ic-pause { display: none; }
+.hero-ctrl.is-playing .ic-pause { display: block; }
+.hero-ctrl.is-playing .ic-play { display: none; }
+.hero-arrow {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(14,33,64,0.65);
+  color: var(--text-on-dark);
+  opacity: .8;
+}
+.hero-arrow svg { width: 20px; height: 20px; }
+.hero-arrow:hover { opacity: 1; color: var(--accent); }
+.hero-arrow.prev { left: var(--space-4); }
+.hero-arrow.next { right: var(--space-4); }
 .game-hero-shot::after {
   content: "";
   position: absolute;

@@ -177,12 +177,83 @@
       const on = soundBtn.getAttribute("aria-pressed") !== "true";
       soundBtn.setAttribute("aria-pressed", String(on));
       if (window.SFX.setEnabled) window.SFX.setEnabled(on);
+      if (!on) {
+        const hv = $("video.hero-slide");
+        if (hv) hv.muted = true;
+        const hs = $("#heroSound");
+        if (hs) hs.setAttribute("aria-pressed", "false");
+      }
       if (on) {
         if (window.SFX.unlock) window.SFX.unlock();
         else window.SFX.click();
       }
       window.toast(on ? "Sound & music on" : "Sound & music muted", { ttl: 1400 });
     });
+  }
+
+  /* ---------- Featured game slideshow (screenshot ↔ trailer) ---------- */
+  const heroShot = $(".game-hero-shot");
+  const heroVid = heroShot && $("video.hero-slide", heroShot);
+  if (heroVid && !reduce) {
+    const dots = $$(".hero-dot", heroShot);
+    const heroSoundBtn = $("#heroSound");
+    const ppBtn = $("#heroPlayPause");
+    const IMG_MS = 6000;
+    let timer = null;
+    let inView = true;
+    let cur = 0;
+    const setDot = i => dots.forEach((d, j) => d.classList.toggle("is-active", j === i));
+    const setTrailerSound = on => {
+      heroVid.muted = !on;
+      if (heroSoundBtn) heroSoundBtn.setAttribute("aria-pressed", String(on));
+      if (window.SFX && SFX.music) {
+        if (on) SFX.music.pause();
+        else if (SFX.enabled) SFX.music.play().catch(() => {});
+      }
+    };
+    const go = i => {
+      clearTimeout(timer);
+      cur = i;
+      const onVid = i === 1;
+      heroVid.classList.toggle("is-active", onVid);
+      if (heroSoundBtn) heroSoundBtn.classList.toggle("is-visible", onVid);
+      if (ppBtn) ppBtn.classList.toggle("is-visible", onVid);
+      if (onVid) {
+        heroVid.play().catch(() => go(0));
+      } else {
+        heroVid.pause();
+        heroVid.currentTime = 0;
+        setTrailerSound(false);
+        if (inView && !document.hidden) timer = setTimeout(() => go(1), IMG_MS);
+      }
+      setDot(i);
+    };
+    heroVid.addEventListener("play", () => { if (ppBtn) ppBtn.classList.add("is-playing"); });
+    heroVid.addEventListener("pause", () => { if (ppBtn) ppBtn.classList.remove("is-playing"); });
+    heroVid.addEventListener("ended", () => go(0));
+    if (heroSoundBtn) heroSoundBtn.addEventListener("click", () => setTrailerSound(heroVid.muted));
+    if (ppBtn) ppBtn.addEventListener("click", () => {
+      if (cur !== 1) { go(1); return; }
+      if (heroVid.paused) heroVid.play().catch(() => {});
+      else heroVid.pause();
+    });
+    const prevBtn = $("#heroPrev");
+    const nextBtn = $("#heroNext");
+    if (prevBtn) prevBtn.addEventListener("click", () => go(cur === 0 ? 1 : 0));
+    if (nextBtn) nextBtn.addEventListener("click", () => go(cur === 0 ? 1 : 0));
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) heroVid.pause();
+      else if (cur === 1) heroVid.play().catch(() => {});
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(entries => {
+        inView = entries[0].isIntersecting;
+        if (!inView) { clearTimeout(timer); heroVid.pause(); }
+        else if (cur === 1) heroVid.play().catch(() => {});
+      }, { threshold: 0.25 }).observe(heroShot);
+    }
+    dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+    timer = setTimeout(() => go(1), IMG_MS);
   }
 
   /* ---------- Generic click blip for [data-sound] ---------- */
