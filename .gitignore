@@ -1,3 +1,7 @@
 games/
 Thumbs.db
 .DS_Store
+.env
+.vercel
+__pycache__/
+*.pyc
