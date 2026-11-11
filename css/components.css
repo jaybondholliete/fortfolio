@@ -246,6 +246,51 @@
 .game-dl-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .dl-size { font-family: var(--font-mono); font-size: var(--text-xs); opacity: .75; }
 .game-note { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-on-dark-muted); }
+.dl-count { font-family: var(--font-mono); font-size: var(--text-xs); opacity: .75; }
+.dl-count:not(:empty)::before { content: "·\00a0"; }
+
+/* ---------- Rating widget ---------- */
+.rate-widget {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.rate-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+  letter-spacing: .04em;
+}
+.rate-stars { display: flex; gap: var(--space-1); }
+.rate-star {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: var(--space-1);
+  cursor: pointer;
+  color: var(--text-on-dark-muted);
+  display: inline-flex;
+}
+.rate-star svg { width: 20px; height: 20px; display: block; }
+.rate-star.is-on { color: var(--accent); }
+.rate-star:hover { color: var(--accent); }
+.rate-star:focus-visible { color: var(--accent); outline: 2px solid var(--accent); outline-offset: 2px; }
+.rate-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark-muted);
+}
+.rate-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
 
 /* ---------- Toast ---------- */
 .toast-stack {
