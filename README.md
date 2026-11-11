@@ -1,6 +1,6 @@
 # Jaybond Holliete — Portfolio
 
-A single-page portfolio with a "Player Console" theme: claymorphic game-HUD panels fused with crisp pixel-art accents. Pure HTML5, CSS3, and vanilla ES6+ JavaScript. No frameworks, no build step, no backend.
+A single-page portfolio with a "Player Console" theme: claymorphic game-HUD panels fused with crisp pixel-art accents. Pure HTML5, CSS3, and vanilla ES6+ JavaScript. No frameworks, no build step. Analytics run through a small FastAPI backend on Vercel + Neon Postgres (see below).
 
 ## Run it
 
@@ -33,6 +33,14 @@ js/
   scroll-reveal.js      # one-time skill-bar fill + achievement unlock (IntersectionObserver)
   particles-cursor.js   # pixel dot + easing trail (desktop only)
   easter-egg.js         # Konami code → toast + pixel confetti
+  analytics.js          # page views, download clicks, star ratings, GitHub release counts
+api/                    # FastAPI analytics backend (Vercel serverless)
+  db.py                 # asyncpg pool, schema bootstrap, IP hashing, queries
+  schemas.py            # Pydantic request/response models
+  routes.py             # POST /api/track, POST /api/rate, GET /api/stats
+app.py                  # FastAPI entrypoint — Vercel zero-config detects this
+requirements.txt        # fastapi, asyncpg, uvicorn (local dev)
+vercel.json             # Vercel project config
 assets/
   icons/                # hand-built 16x16 pixel-grid SVGs (also inlined as <symbol> in HTML)
   images/               # empty — drop real photos/screenshots here
@@ -60,7 +68,8 @@ All colors and fonts live in `css/tokens.css` as CSS custom properties. Never ha
 - **Custom cursor**: pixel dot + easing trail on desktop; disabled on touch and under reduced-motion.
 - **Sound**: 8-bit UI blips on clicks/unlocks. Muted by default with a visible speaker toggle. Never autoplays.
 - **Easter egg**: Konami code (↑ ↑ ↓ ↓ ← → ← → B A) → "ACHIEVEMENT UNLOCKED" toast + pixel confetti. Non-blocking.
-- **Contact**: `mailto:` primary CTA + "Copy email" with toast confirmation. No backend.
+- **Contact**: `mailto:` primary CTA + "Copy email" with toast confirmation.
+- **Analytics**: privacy-light tracking — page views (deduped per visitor per day), RaftyTrip download clicks, and a 1–5 star rating widget. IPs are SHA-256+salt hashed server-side; no cookies. Backend: FastAPI on Vercel, Postgres on Neon (`DATABASE_URL`). See `.env.example` for env vars.
 
 ## Accessibility
 
@@ -71,5 +80,5 @@ All colors and fonts live in `css/tokens.css` as CSS custom properties. Never ha
 
 ## Tech constraints
 
-- Only external resource: Google Fonts CDN link.
+- External resources: Google Fonts CDN, api.github.com (release download counts), and the analytics API (self-hosted FastAPI on Vercel).
 - Zero console errors, zero build dependencies.
